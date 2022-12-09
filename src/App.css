@@ -1,38 +1,51 @@
-.App {
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.header{
+  background-color: purple;
+  color: white;
+  padding: 5px;
+}
+
+table{
+  background-color: purple;
+  color: white;
   text-align: center;
+  margin: 20px auto;
+  border: 1px solid black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+table td, th{
+  padding: 5px;
+  border: 1px solid black;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#comparisonForm {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-around;
+ background-color: rgba(142, 131, 131, 0.8);
+ max-width: 60%;
+ padding: 5px;
+ border-radius: 5px;
+ margin: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#comparisonForm input{
+  margin: 3px;
+}
+
+.dashboard {
+  width: max-content;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dashboard button{
+  width: 100px;
+  display: block;
+  margin-left: auto;
 }
