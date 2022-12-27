@@ -12,9 +12,18 @@
 table{
   background-color: purple;
   color: white;
-  text-align: center;
+  text-align: left;
   margin: 20px auto;
   border: 1px solid black;
+  width: 70%;
+}
+
+table thead{
+  width: 100%;
+}
+
+table th{
+  text-align: center;
 }
 
 table td, th{
@@ -38,7 +47,6 @@ table td, th{
 }
 
 .dashboard {
-  width: max-content;
   margin: auto;
   display: flex;
   flex-direction: column;
