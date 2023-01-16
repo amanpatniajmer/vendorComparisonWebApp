@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ComparisonForm from './ComparisonForm';
 import Header from './Header'
 import TableHeader from './Table/TableHeader'
@@ -23,14 +23,16 @@ const CapabilityAssessmentDashboard = () => {
 
 
     let allComparisons = ["ASPECT","CXOne", "NICE", "Verint", "Calabrio", "Genesys Cloud", "AWS", "Salesforce WEM"];
-    let WFMdata = {"Forecasting" : [25,30, 1,2,3,4,5,6]};
-    let integrationDeploymentData = {"Integration with 3rd Party tools" : [25,30,1,2,3,4,5,6]};
-    let webPortalData = {"User Friendliness of Web Portal" : [25,30,1,2,3,4,5,6]};
+    let WFMdata = {"Forecasting" : [25,30, 1,2,3,4,5,6], "Capacity Planning" : [25,30, 1,2,3,4,5,6]};
+    let integrationDeploymentData = {"Integration with 3rd Party tools" : [25,30,1,2,3,4,5,6], "Ease of Deployment" : [25,30,1,2,3,4,5,6]};
+    let webPortalData = {"User Friendliness of Web Portal" : [25,30,1,2,3,4,5,6], "Employee Self Service options" : [25,30,1,2,3,4,5,6]};
 
     useEffect(() => {
         const { search } = location;
-        let query = new URLSearchParams(search);
-        setQueryInBinary(query.get('q'))
+        let query = new URLSearchParams(search).get('q');
+        if (query != null) {
+            setQueryInBinary(query)
+        }
     }, [location])
     
     
@@ -42,12 +44,12 @@ const CapabilityAssessmentDashboard = () => {
         <table>
             <TableHeader headings={["CAPABILITY ASSESSMENT", ...filterArray(allComparisons)]}/>
             <tbody>
-                <TablePartiton breakText = {"WFM Capabilities"} dataArray = {filterObject(WFMdata)}/>
-                <TablePartiton breakText = {"Integration & Deployment"} dataArray = {filterObject(integrationDeploymentData)}/>
-                <TablePartiton breakText = {'Web Portal & Employment Self-Service'} dataArray = {filterObject(webPortalData)}/>
+                <TablePartiton breakText = {"WFM Capabilities"} dataObject = {filterObject(WFMdata)}/>
+                <TablePartiton breakText = {"Integration & Deployment"} dataObject = {filterObject(integrationDeploymentData)}/>
+                <TablePartiton breakText = {'Web Portal & Employment Self-Service'} dataObject = {filterObject(webPortalData)}/>
             </tbody>
         </table>
-        <button>Next</button>
+        <Link to={`/feature-assessment-dashboard?q=${queryInBinary}`}><button>Next</button></Link>
         </div>
     </>
   )

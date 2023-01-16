@@ -1,9 +1,9 @@
 import React from 'react'
 
-const TableRow = ({dataArray=[]}) => {
+const TableRow = ({dataArray=[], rowSpan=[]}) => {
   return (
     <tr>
-        {dataArray.map((element) => <td key={element}> {element} </td>)}
+        {dataArray.map((element, i) => <td key={element} rowSpan={rowSpan[i]}> {element} </td>)}
     </tr>
   )
 }

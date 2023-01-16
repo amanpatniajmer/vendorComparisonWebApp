@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const ComparisonForm = ({comparisonKeys=[]}) => {
-    const { search } = useLocation();
-    let query = new URLSearchParams(search);
-    const [queryInBinary, setQueryInBinary] = useState(query.get('q'))
+    let location = useLocation();
+    const [queryInBinary, setQueryInBinary] = useState('00000000')
     let navigate = useNavigate();
 
     function invertIndex(i) {
@@ -22,7 +21,13 @@ const ComparisonForm = ({comparisonKeys=[]}) => {
         }
     }
 
-    
+    useEffect(() => {
+        const { search } = location;
+        let query = new URLSearchParams(search).get('q');
+        if (query != null) {
+            setQueryInBinary(query)
+        }
+    }, [location])
 
   return (
     <div>
