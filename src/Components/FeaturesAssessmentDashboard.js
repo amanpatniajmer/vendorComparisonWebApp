@@ -4,25 +4,13 @@ import ComparisonForm from './ComparisonForm';
 import Header from './Header'
 import TableHeader from './Table/TableHeader'
 import TablePartiton from './Table/TablePartiton';
-import TableRow from './Table/TableRow';
+import { filterArray, filterObject } from '../Utils/utils';
 
 const FeaturesAssessmentDashboard = () => {
     let location = useLocation();
     const [queryInBinary, setQueryInBinary] = useState('00000000')
 
-    function filterArray(data) {
-        return data.filter((val, i) => queryInBinary[i]==='1')
-    }
-
-    function filterObject(data) {
-        for (const key in data) {
-            data[key] = filterArray(data[key])
-        }
-        return data;
-    }
-
     let forecastingData = {"Personal Planner" : [25,30, 1,2,3,4,5,6], "Multi-Step Workflow" : [25,30, 1,2,3,4,5,6], "Adjust intra-day forecast" : [25,30, 1,2,3,4,5,6]}
-
 
     let allComparisons = ["ASPECT","CXOne", "NICE", "Verint", "Calabrio", "Genesys Cloud", "AWS", "Salesforce WEM"];
     let schedulingData = {"Schedule Viewer Preference" : [25,30, 1,2,3,4,5,6], "Schedule Trades" : [25,30, 1,2,3,4,5,6]};
@@ -46,14 +34,14 @@ const FeaturesAssessmentDashboard = () => {
         <ComparisonForm comparisonKeys={allComparisons}/>
         <div className='dashboard'>
         <table>
-            <TableHeader headings={["Capability", "Features", ...filterArray(allComparisons)]}/>
+            <TableHeader headings={["Capability", "Features", ...filterArray(allComparisons, queryInBinary)]}/>
             <tbody>
                 {Object.entries(allData).map((val, i)=>{
-                    return <TablePartiton key={i} breakText={val[0]} dataObject={filterObject(val[1])} firstRowSpan={true}/>
+                    return <TablePartiton key={i} breakText={val[0]} dataObject={filterObject(val[1], queryInBinary)} firstRowSpan={true}/>
                 })}
             </tbody>
         </table>
-        <Link to={`/feature-assessment-dashboard?q=${queryInBinary}`}><button>Next</button></Link>
+        <Link to={`/activities-assessment-dashboard?q=${queryInBinary}`}><button>Next</button></Link>
         </div>
     </>
   )

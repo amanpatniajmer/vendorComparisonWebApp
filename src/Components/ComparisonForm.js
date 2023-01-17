@@ -7,15 +7,20 @@ const ComparisonForm = ({comparisonKeys=[]}) => {
     let navigate = useNavigate();
 
     function invertIndex(i) {
-        let start = queryInBinary.slice(0,i);
-        let end = queryInBinary.slice(i+1);
-        if (queryInBinary.at(i) === '1') {
-            let newQuery = start + '0' + end;
+        let trail="";
+        for (let p=queryInBinary.length;p<8;p++){
+            trail+="0"
+        }
+        let newQuery = queryInBinary + trail;
+        let start = newQuery.slice(0,i);
+        let end = newQuery.slice(i+1);
+        if (newQuery.at(i) === '1') {
+            newQuery = start + '0' + end;
             setQueryInBinary(newQuery)
             navigate(window.location.pathname + "?q=" + newQuery)
         }
         else {
-            let newQuery = start + '1' + end;
+            newQuery = start + '1' + end;
             setQueryInBinary(start + '1' + end);
             navigate(window.location.pathname + "?q=" + newQuery);
         }

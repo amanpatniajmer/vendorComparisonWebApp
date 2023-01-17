@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import ComparisonForm from './ComparisonForm';
-import Header from './Header'
-import TableHeader from './Table/TableHeader'
+import Header from './Header';
+import TableHeader from './Table/TableHeader';
 import TablePartiton from './Table/TablePartiton';
 import { filterArray, filterObject } from '../Utils/utils';
 
-const CapabilityAssessmentDashboard = () => {
+const ActivitiesAssessmentDashboard = () => {
     let location = useLocation();
     const [queryInBinary, setQueryInBinary] = useState('00000000')
 
@@ -26,13 +26,13 @@ const CapabilityAssessmentDashboard = () => {
     
   return (
     <>
-        <Header heading={"Capability Assessment"}/>
+        <Header heading={"Activities Assessment"}/>
         <ComparisonForm comparisonKeys={allComparisons}/>
         <div className='dashboard'>
         <table>
             <TableHeader headings={["CAPABILITY ASSESSMENT", ...filterArray(allComparisons, queryInBinary)]}/>
             <tbody>
-                <TablePartiton breakText = {"WFM Capabilities"} dataObject = {filterObject(WFMdata, queryInBinary)} mode={1}/>
+                <TablePartiton breakText = {"WFM Capabilities"} dataObject = {filterObject(WFMdata, queryInBinary)}/>
                 <TablePartiton breakText = {"Integration & Deployment"} dataObject = {filterObject(integrationDeploymentData, queryInBinary)}/>
                 <TablePartiton breakText = {'Web Portal & Employment Self-Service'} dataObject = {filterObject(webPortalData, queryInBinary)}/>
             </tbody>
@@ -43,4 +43,4 @@ const CapabilityAssessmentDashboard = () => {
   )
 }
 
-export default CapabilityAssessmentDashboard
+export default ActivitiesAssessmentDashboard
