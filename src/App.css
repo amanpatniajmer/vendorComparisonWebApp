@@ -4,22 +4,24 @@
 }
 
 .header{
-  background-color: purple;
+  background-color: rgb(117, 9, 171);
   color: white;
   padding: 5px;
 }
 
 table{
-  background-color: purple;
-  color: white;
+  background-color: white;
+  color: black;
   text-align: left;
   margin: 20px auto;
   border: 1px solid black;
-  width: 70%;
+  width: 90%;
 }
 
 table thead{
   width: 100%;
+  background-color: rgb(117, 9, 171);
+  color: white;
 }
 
 table th{
@@ -29,6 +31,7 @@ table th{
 table td, th{
   padding: 5px;
   border: 1px solid black;
+  align-content: center;
 }
 
 #comparisonForm {

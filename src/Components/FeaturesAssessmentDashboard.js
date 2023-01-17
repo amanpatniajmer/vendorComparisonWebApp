@@ -24,7 +24,7 @@ const FeaturesAssessmentDashboard = () => {
     let forecastingData = {"Personal Planner" : [25,30, 1,2,3,4,5,6], "Multi-Step Workflow" : [25,30, 1,2,3,4,5,6], "Adjust intra-day forecast" : [25,30, 1,2,3,4,5,6]}
 
 
-    let allComparisons = ["ASPECT","CXOne", "NICE", "Verint", "Calabrio", "Genesys Cloud", "AWS", "Salesforce WEM"];
+    let allComparisons = ["ASPECT","CXOne", "NICE", "Verint", "Calabrio", "Genesys Cloud", "AWS", "Playvox"];
     let schedulingData = {"Schedule Viewer Preference" : [25,30, 1,2,3,4,5,6], "Schedule Trades" : [25,30, 1,2,3,4,5,6]};
     let agentWebData = {"Stats Viewer" : [25,30,1,2,3,4,5,6], "Stats Viewer Configuration" : [25,30,1,2,3,4,5,6]};
     let reportsData = {"Queue Level" : [25,30,1,2,3,4,5,6], "YTD" : [25,30,1,2,3,4,5,6]};
