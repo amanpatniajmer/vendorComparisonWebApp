@@ -1,0 +1,100 @@
+{
+    "Forecasting": {
+        "Personal Planner": [
+            25,
+            30,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ],
+        "Multi-Step Workflow": [
+            25,
+            30,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ],
+        "Adjust intra-day forecast": [
+            25,
+            30,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ]
+    },
+    "Scheduling": {
+        "Schedule Viewer Preference": [
+            25,
+            30,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ],
+        "Schedule Trades": [
+            25,
+            30,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ]
+    },
+    "Agent Web Solution": {
+        "Stats Viewer": [
+            25,
+            30,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ],
+        "Stats Viewer Configuration": [
+            25,
+            30,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ]
+    },
+    "Reports": {
+        "Queue Level": [
+            25,
+            30,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ],
+        "YTD": [
+            25,
+            30,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        ]
+    }
+}

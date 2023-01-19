@@ -11,11 +11,10 @@ const TableRow = ({dataArray=[], rowSpan=[], mode=0}) => {
               <div className='pie'>
               <ChangingProgressProvider values={[0, element]}>
                 {percentage => (
-                <CircularProgressbar value={percentage} text={`${percentage}%`} strokeWidth={50}
+                <CircularProgressbar value={percentage} strokeWidth={50}
                   styles={buildStyles({
-                    textColor: "white",
-                    pathColor: "turquoise",
-                    trailColor: "grey",
+                    pathColor: "rgb(117, 9, 171)",
+                    trailColor: "rgb(200, 200, 200)",
                     pathTransitionDuration: 0.7
                   })}
                   />
