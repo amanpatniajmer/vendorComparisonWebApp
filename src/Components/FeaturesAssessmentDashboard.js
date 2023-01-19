@@ -12,7 +12,7 @@ const FeaturesAssessmentDashboard = () => {
     const [queryInBinary, setQueryInBinary] = useState('00000000')
 
     let allComparisons = ["ASPECT","CXOne", "NICE", "Verint", "Calabrio", "Genesys Cloud", "AWS", "Playvox"];
-    
+         
     useEffect(() => {
         const { search } = location;
         let query = new URLSearchParams(search).get('q');
@@ -20,7 +20,7 @@ const FeaturesAssessmentDashboard = () => {
             setQueryInBinary(query)
         }
     }, [location])
-
+    
   return (
     <>
         <Header heading={"FEATURES ASSESSMENT - Market Leaders"}/>
