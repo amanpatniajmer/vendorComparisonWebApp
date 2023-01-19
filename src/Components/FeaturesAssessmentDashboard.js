@@ -5,7 +5,7 @@ import Header from './Header'
 import TableHeader from './Table/TableHeader'
 import TablePartiton from './Table/TablePartiton';
 import { filterArray, filterObject } from '../Utils/utils';
-import allData from '../features data.json'
+import allData from '../featuresData.json'
 
 const FeaturesAssessmentDashboard = () => {
     let location = useLocation();
