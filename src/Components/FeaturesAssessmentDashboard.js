@@ -30,7 +30,7 @@ const FeaturesAssessmentDashboard = () => {
             <TableHeader headings={["Capability", "Features", ...filterArray(allComparisons, queryInBinary)]}/>
             <tbody>
                 {Object.entries(allData).map((val, i)=>{
-                    return <TablePartiton key={i} breakText={val[0]} dataObject={filterObject(val[1], queryInBinary)} firstRowSpan={true}/>
+                    return <TablePartiton key={i} breakText={val[0]} dataObject={filterObject(val[1], queryInBinary)} firstRowSpan={true} mode={2}/>
                 })}
             </tbody>
         </table>

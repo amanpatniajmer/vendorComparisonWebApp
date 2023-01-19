@@ -70,4 +70,33 @@ tr.tableBreakHeading td{
   width: 40px;
   height: 40px;
   text-align: center;
+  margin: auto;
+}
+
+td.e-0 {
+  background-color: red;
+}
+
+td.e-1 {
+  background-color: yellow;
+}
+
+td.e-2 {
+  background-color: yellowgreen;
+}
+
+td.e-3 {
+  background-color: greenyellow;
+}
+
+td.e-4 {
+  background-color: green;
+}
+
+td.e-Y{
+  background-color: greenyellow;
+}
+
+td.e-N{
+  background-color: orangered;
 }
