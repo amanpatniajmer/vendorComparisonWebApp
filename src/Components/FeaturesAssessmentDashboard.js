@@ -5,6 +5,7 @@ import Header from './Header'
 import TableHeader from './Table/TableHeader'
 import TablePartiton from './Table/TablePartiton';
 import TableRow from './Table/TableRow';
+import allData from '../features data.json'
 
 const FeaturesAssessmentDashboard = () => {
     let location = useLocation();
@@ -29,17 +30,19 @@ const FeaturesAssessmentDashboard = () => {
     let agentWebData = {"Stats Viewer" : [25,30,1,2,3,4,5,6], "Stats Viewer Configuration" : [25,30,1,2,3,4,5,6]};
     let reportsData = {"Queue Level" : [25,30,1,2,3,4,5,6], "YTD" : [25,30,1,2,3,4,5,6]};
 
-    let allData = {"Forecasting" : forecastingData, "Scheduling" :  schedulingData,
-"Agent Web Solution" : agentWebData, "Reports" :  reportsData};
-
+//     let allData = {"Forecasting" : forecastingData, "Scheduling" :  schedulingData,
+// "Agent Web Solution" : agentWebData, "Reports" :  reportsData};
+         
     useEffect(() => {
         const { search } = location;
         let query = new URLSearchParams(search).get('q');
         if (query != null) {
             setQueryInBinary(query)
         }
+        console.log(allData)
+        allData=JSON.parse(allData)
     }, [location])
-
+    
   return (
     <>
         <Header heading={"FEATURES ASSESSMENT - Market Leaders"}/>
