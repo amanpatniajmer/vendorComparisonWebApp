@@ -25,7 +25,7 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
     
   return (
     <>
-        <Header heading={"FEATURES ASSESSMENT - Market Leaders"}/>
+        <Header heading={"FEATURES ASSESSMENT - Market Leaders"} className='center'/>
         <ComparisonForm comparisonKeys={allComparisons}/>
         <div className='dashboard'>
         <div id='tableDiv'>
@@ -39,11 +39,15 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
         </table>
         </div>
         <div className='controls'>
-            <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
-            <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
-            <button onClick={()=>downloadFeaturesCSV(allData, allComparisons, queryInBinary)}>Download CSV</button>
-            <Link to={`/capability-assessment-dashboard?q=${queryInBinary}`} className='prev'><button>Previous</button></Link>
-            <Link to={`/activities-assessment-dashboard?q=${queryInBinary}`} className='next'><button>Next</button></Link>
+            <div className='left'>
+                <Link to={`/capability-assessment-dashboard?q=${queryInBinary}`}><button className='prev'>Previous</button></Link>
+            </div>
+            <div className='right'>
+                <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
+                <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
+                <button onClick={()=>downloadFeaturesCSV(allData, allComparisons, queryInBinary)}>Download CSV</button>
+                <Link to={`/activities-assessment-dashboard?q=${queryInBinary}`}><button className='next'>Next</button></Link>
+            </div>
         </div>
         </div>
     </>

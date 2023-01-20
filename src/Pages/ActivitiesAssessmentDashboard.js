@@ -27,7 +27,7 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
     
   return (
     <>
-        <Header heading={"Activities Assessment"}/>
+        <Header heading={"Activities Assessment"} className='center'/>
         <ComparisonForm comparisonKeys={allComparisons}/>
         <div className='dashboard'>
             <div id="tableDiv">
@@ -42,10 +42,14 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
             </table>
         </div>
         <div className='controls'>
-            <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
-            <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
-            <button onClick={()=>downloadActivitiesCSV(allData, allComparisons, queryInBinary)}>Download CSV</button>
-            <Link to={`/feature-assessment-dashboard?q=${queryInBinary}`} className='prev'><button>Previous</button></Link>
+            <div className='left'>
+                <Link to={`/feature-assessment-dashboard?q=${queryInBinary}`}><button className='prev'>Previous</button></Link>
+            </div>
+            <div className='right'>
+                <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
+                <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
+                <button onClick={()=>downloadActivitiesCSV(allData, allComparisons, queryInBinary)}>Download CSV</button>
+            </div>
         </div>
         </div>
     </>

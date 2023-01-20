@@ -26,7 +26,7 @@ const CapabilityAssessmentDashboard = ({setActive}) => {
     
   return (
     <>
-        <Header heading={"Capability Assessment"}/>
+        <Header heading={"Capability Assessment"} className='center'/>
         <ComparisonForm comparisonKeys={allComparisons}/>
         <div className='dashboard'>
         <div id='tableDiv'>
@@ -40,10 +40,14 @@ const CapabilityAssessmentDashboard = ({setActive}) => {
         </table>
         </div>
         <div className='controls'>
-            <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
-            <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
-            <button onClick={()=>downloadCapabilitiesCSV(allData, allComparisons, queryInBinary)}>Download CSV</button>
-            <Link to={`/feature-assessment-dashboard?q=${queryInBinary}`} className='next'><button>Next</button></Link>
+            <div className='left'>
+            </div>
+            <div className='right'>
+                <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
+                <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
+                <button onClick={()=>downloadCapabilitiesCSV(allData, allComparisons, queryInBinary)}>Download CSV</button>
+                <Link to={`/feature-assessment-dashboard?q=${queryInBinary}`}><button className='next'>Next</button></Link>
+            </div>
         </div>
         </div>
     </>
