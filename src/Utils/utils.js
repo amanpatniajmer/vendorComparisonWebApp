@@ -1,6 +1,7 @@
 import html2canvas from 'html2canvas';
 import jsPDF from "jspdf";
 import exportFromJSON from 'export-from-json'  
+import { utils, writeFileXLSX } from 'xlsx';
 
 export function filterArray(data, queryInBinary) {
     return data.filter((_val, i) => queryInBinary[i]==='1')
@@ -127,4 +128,29 @@ export function downloadCapabilitiesCSV(dataObject, headings, queryInBinary) {
     const fileName = 'capabilities'  
     const exportType = 'csv'
     exportFromJSON({data: newData, fileName, exportType}) 
+}
+
+export function downloadCapabilitiesExcel(dataObject, headings, queryInBinary) {
+    let newData = convertFeaturesToRawForm(dataObject, headings, queryInBinary)
+    const fileName = 'capabilities'  
+    downloadExcel(newData, fileName)
+}
+
+export function downloadFeaturesExcel(dataObject, headings, queryInBinary) {
+    let newData = convertFeaturesToRawForm(dataObject, headings, queryInBinary)
+    const fileName = 'features'  
+    downloadExcel(newData, fileName)
+}
+
+export function downloadActivitiesExcel(dataObject, headings, queryInBinary) {
+    let newData = convertActivitiesToRawForm(dataObject, headings, queryInBinary)
+    const fileName = 'activities'  
+    downloadExcel(newData, fileName)
+}
+
+function downloadExcel(newData, fileName) {
+    const ws = utils.json_to_sheet(newData);
+    const wb = utils.book_new();
+    utils.book_append_sheet(wb, ws, fileName);
+    writeFileXLSX(wb, `${fileName}.xlsx`);
 }

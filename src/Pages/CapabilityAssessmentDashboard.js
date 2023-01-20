@@ -4,7 +4,7 @@ import ComparisonForm from '../Components/ComparisonForm';
 import Header from '../Components/Header'
 import TableHeader from '../Components/Table/TableHeader'
 import TablePartiton from '../Components/Table/TablePartiton';
-import { filterArray, filterObject, downloadImagePDF, downloadTablePDF, downloadCapabilitiesCSV } from '../Utils/utils';
+import { filterArray, filterObject, downloadImagePDF, downloadTablePDF, downloadCapabilitiesCSV, downloadCapabilitiesExcel } from '../Utils/utils';
 import allData from '../capabilityData.json'
 
 const CapabilityAssessmentDashboard = ({setActive}) => {
@@ -46,6 +46,7 @@ const CapabilityAssessmentDashboard = ({setActive}) => {
                 <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
                 <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
                 <button onClick={()=>downloadCapabilitiesCSV(allData, allComparisons, queryInBinary)}>Download CSV</button>
+                <button onClick={()=>downloadCapabilitiesExcel(allData, allComparisons, queryInBinary)}>Download Excel</button>
                 <Link to={`/feature-assessment-dashboard?q=${queryInBinary}`}><button className='next'>Next</button></Link>
             </div>
         </div>

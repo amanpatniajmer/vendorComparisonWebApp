@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import ComparisonForm from '../Components/ComparisonForm';
 import Header from '../Components/Header';
 import TableHeader from '../Components/Table/TableHeader';
-import { filterArray, downloadImagePDF, downloadTablePDF, downloadActivitiesCSV } from '../Utils/utils';
+import { filterArray, downloadImagePDF, downloadTablePDF, downloadActivitiesCSV, downloadActivitiesExcel } from '../Utils/utils';
 import allData from '../activitiesData.json'
 import TableRow from '../Components/Table/TableRow'
 
@@ -49,6 +49,7 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
                 <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
                 <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
                 <button onClick={()=>downloadActivitiesCSV(allData, allComparisons, queryInBinary)}>Download CSV</button>
+                <button onClick={()=>downloadActivitiesExcel(allData, allComparisons, queryInBinary)}>Download Excel</button>
             </div>
         </div>
         </div>
