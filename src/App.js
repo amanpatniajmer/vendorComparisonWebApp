@@ -1,29 +1,28 @@
-import { Link, Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import ActivitiesAssessmentDashboard from './Components/ActivitiesAssessmentDashboard';
-import CapabilityAssessmentDashboard from './Components/CapabilityAssessmentDashboard';
-import FeaturesAssessmentDashboard from './Components/FeaturesAssessmentDashboard';
+import ActivitiesAssessmentDashboard from './Pages/ActivitiesAssessmentDashboard';
+import CapabilityAssessmentDashboard from './Pages/CapabilityAssessmentDashboard';
+import FeaturesAssessmentDashboard from './Pages/FeaturesAssessmentDashboard';
+import Home from './Pages/Home';
+import Navbar from './Components/Navbar';
 
 function App() {
+
+  const [active, setActive] = useState("Home")
   return (
     <div className="App">
-      <ul>
-        <li>
-          <Link to='/capability-assessment-dashboard'>Capability Assessment Dashboard</Link>
-        </li>
-        <li>
-          <Link to='/feature-assessment-dashboard'>Feature Assessment Dashboard</Link>
-        </li>
-        <li>
-          <Link to='/activities-assessment-dashboard'>Activities Assessment Dashboard</Link>
-        </li>
-      </ul>
+      <Navbar active={active}/>
       <Routes>
-        <Route path='/capability-assessment-dashboard' element={<CapabilityAssessmentDashboard/>}>
+        <Route path='/' element={<Home setActive={setActive}/>}>
         </Route>
-        <Route path='/feature-assessment-dashboard' element={<FeaturesAssessmentDashboard/>}>
+        <Route path='/capability-assessment-dashboard' element={<CapabilityAssessmentDashboard setActive={setActive}/>}>
         </Route>
-        <Route path='/activities-assessment-dashboard' element={<ActivitiesAssessmentDashboard/>}>
+        <Route path='/feature-assessment-dashboard' element={<FeaturesAssessmentDashboard setActive={setActive}/>}>
+        </Route>
+        <Route path='/activities-assessment-dashboard' element={<ActivitiesAssessmentDashboard setActive={setActive}/>}>
+        </Route>
+        <Route path='/*' element={<Home setActive={setActive}/>}>
         </Route>
       </Routes>
     </div>

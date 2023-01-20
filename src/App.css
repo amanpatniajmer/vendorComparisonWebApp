@@ -4,8 +4,7 @@
 }
 
 .header{
-  background-color: rgb(117, 9, 171);
-  color: white;
+  line-height: 3rem;
   padding: 5px;
 }
 
@@ -107,4 +106,42 @@ td.e-Y{
 
 td.e-N{
   background-color: orangered;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(117, 9, 171);
+  color: white;
+}
+
+.navbar ul{
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.navbar ul li{
+  margin: 20px;
+}
+
+.navbar ul li a {
+  color: white;
+  outline: none;
+  text-decoration:solid;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.navbar ul li a:not(.active):hover{
+  background-color: white;
+  color: black;
+}
+
+.navbar .active {
+  pointer-events: none;
+  background-color: black;
+  
+
 }

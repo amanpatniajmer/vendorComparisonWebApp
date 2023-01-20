@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
-import ComparisonForm from './ComparisonForm';
-import Header from './Header'
-import TableHeader from './Table/TableHeader'
-import TablePartiton from './Table/TablePartiton';
+import ComparisonForm from '../Components/ComparisonForm';
+import Header from '../Components/Header'
+import TableHeader from '../Components/Table/TableHeader'
+import TablePartiton from '../Components/Table/TablePartiton';
 import { filterArray, filterObject, downloadImagePDF, downloadTablePDF, downloadCapabilitiesCSV } from '../Utils/utils';
 import allData from '../capabilityData.json'
 
-const CapabilityAssessmentDashboard = () => {
+const CapabilityAssessmentDashboard = ({setActive}) => {
     let location = useLocation();
     const [queryInBinary, setQueryInBinary] = useState('00000000')
 
     let allComparisons = ["ASPECT","CXOne", "NICE", "Verint", "Calabrio", "Genesys Cloud", "AWS", "Playvox"];
 
     useEffect(() => {
+        setActive("Capabilities")
         const { search } = location;
         let query = new URLSearchParams(search).get('q');
         if (query != null) {
             setQueryInBinary(query)
         }
+        // eslint-disable-next-line
     }, [location])
     
     
