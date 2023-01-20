@@ -69,9 +69,14 @@ function convertFeaturesToRawForm(dataObject, headings, queryInBinary) {
     headings = filterArray(headings, queryInBinary)
     let newData = []
     for (let capability in data) {
+        let first=true;
         for (let feature in data[capability]) {
             let newRow = {}
-            newRow["Capability"] = capability;
+            if (first) {
+                newRow["Capability"] = capability;
+                first=!first
+            }
+            else newRow["Capability"] = "";
             newRow["Features"] = feature
             for (let i in data[capability][feature]) {
                 newRow[headings[i]] = data[capability][feature][i]
