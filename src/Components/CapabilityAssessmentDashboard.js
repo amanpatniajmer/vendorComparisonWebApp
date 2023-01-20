@@ -4,7 +4,7 @@ import ComparisonForm from './ComparisonForm';
 import Header from './Header'
 import TableHeader from './Table/TableHeader'
 import TablePartiton from './Table/TablePartiton';
-import { filterArray, filterObject } from '../Utils/utils';
+import { filterArray, filterObject, downloadImagePDF, downloadTablePDF, downloadActivitiesCSV } from '../Utils/utils';
 import allData from '../capabilityData.json'
 
 const CapabilityAssessmentDashboard = () => {
@@ -27,7 +27,8 @@ const CapabilityAssessmentDashboard = () => {
         <Header heading={"Capability Assessment"}/>
         <ComparisonForm comparisonKeys={allComparisons}/>
         <div className='dashboard'>
-        <table>
+        <div id='tableDiv'>
+        <table id='table'>
             <TableHeader headings={["CAPABILITY ASSESSMENT", ...filterArray(allComparisons, queryInBinary)]}/>
             <tbody>
                 {Object.entries(allData).map((val, i)=>{
@@ -35,7 +36,13 @@ const CapabilityAssessmentDashboard = () => {
                 })}
             </tbody>
         </table>
-        <Link to={`/feature-assessment-dashboard?q=${queryInBinary}`}><button>Next</button></Link>
+        </div>
+        <div className='controls'>
+            <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
+            <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
+            <button onClick={()=>downloadActivitiesCSV(allData, allComparisons, queryInBinary)}>Download CSV</button>
+            <Link to={`/feature-assessment-dashboard?q=${queryInBinary}`} className='next'><button>Next</button></Link>
+        </div>
         </div>
     </>
   )

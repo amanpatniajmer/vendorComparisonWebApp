@@ -3,10 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 import ComparisonForm from './ComparisonForm';
 import Header from './Header';
 import TableHeader from './Table/TableHeader';
-import TablePartiton from './Table/TablePartiton';
-import { filterArray, filterObject } from '../Utils/utils';
+import { filterArray, downloadImagePDF, downloadTablePDF, downloadActivitiesCSV } from '../Utils/utils';
 import allData from '../activitiesData.json'
-import TableRow from './Table/TableRow';
+import TableRow from './Table/TableRow'
 
 const ActivitiesAssessmentDashboard = () => {
     let location = useLocation();
@@ -21,6 +20,7 @@ const ActivitiesAssessmentDashboard = () => {
             setQueryInBinary(query)
         }
     }, [location])
+
     
     
   return (
@@ -28,16 +28,23 @@ const ActivitiesAssessmentDashboard = () => {
         <Header heading={"Activities Assessment"}/>
         <ComparisonForm comparisonKeys={allComparisons}/>
         <div className='dashboard'>
-        <table>
-            <TableHeader headings={["S.No.", "Activities", ...filterArray(allComparisons, queryInBinary)]}/>
-            <tbody>
-                {/* <TableRow dataArray={filterArray(allData[1], "11"+queryInBinary)}/> */}
-                {allData.map((val, i)=>{
-                    return <TableRow key={i} breakText={val} dataArray={filterArray(val, "11"+queryInBinary)} firstRowSpan={true} mode={3}/>
-                })}
-            </tbody>
-        </table>
-        <Link to={`/feature-assessment-dashboard?q=${queryInBinary}`}><button>Next</button></Link>
+            <div id="tableDiv">
+            <table id="table">
+                <TableHeader headings={["S.No.", "Activities", ...filterArray(allComparisons, queryInBinary)]}/>
+                <tbody>
+                    {/* <TableRow dataArray={filterArray(allData[1], "11"+queryInBinary)}/> */}
+                    {allData.map((val, i)=>{
+                        return <TableRow key={i} breakText={val} dataArray={filterArray(val, "11"+queryInBinary)} firstRowSpan={true} mode={3}/>
+                    })}
+                </tbody>
+            </table>
+        </div>
+        <div className='controls'>
+            <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
+            <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
+            <button onClick={()=>downloadActivitiesCSV(allData, allComparisons, queryInBinary)}>Download CSV</button>
+            <Link to={`/feature-assessment-dashboard?q=${queryInBinary}`} className='prev'><button>Previous</button></Link>
+        </div>
         </div>
     </>
   )

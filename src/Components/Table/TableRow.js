@@ -4,6 +4,12 @@ import ChangingProgressProvider from '../ChangingProgressProvider'
 
 const TableRow = ({dataArray=[], rowSpan=[], mode=0}) => {
 
+  function shouldAddClassName(mode, element) {
+    if (mode ===3 && (element==="Y" || element === "N")) return true;
+    if (mode === 2 && !isNaN(element)) return true
+    return false;
+  }
+
 
   return (
     <tr>
@@ -24,9 +30,7 @@ const TableRow = ({dataArray=[], rowSpan=[], mode=0}) => {
               </ChangingProgressProvider>
           </div>
                </td>
-          else if(mode === 2 && !isNaN(element))
-            return <td key={i} rowSpan={rowSpan[i]} className={`e-${element}`}> {element} </td>
-          else if(mode === 3 && (element==="Y" || element === "N"))
+          else if(shouldAddClassName(mode, element))
             return <td key={i} rowSpan={rowSpan[i]} className={`e-${element}`}> {element} </td>
           else 
             return <td key={i} rowSpan={rowSpan[i]}> {element} </td>

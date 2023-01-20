@@ -55,10 +55,18 @@ table td, th{
   flex-direction: column;
 }
 
-.dashboard button{
+.controls button{
   width: 100px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+}
+
+.controls a.next {
+  align-items: flex-end;
   display: block;
-  margin-left: auto;
 }
 
 tr.tableBreakHeading td{

@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <ul>
         <li>
-          <Link to='/capability-dashboard'>Capability Assessment Dashboard</Link>
+          <Link to='/capability-assessment-dashboard'>Capability Assessment Dashboard</Link>
         </li>
         <li>
           <Link to='/feature-assessment-dashboard'>Feature Assessment Dashboard</Link>
@@ -19,7 +19,7 @@ function App() {
         </li>
       </ul>
       <Routes>
-        <Route path='/capability-dashboard' element={<CapabilityAssessmentDashboard/>}>
+        <Route path='/capability-assessment-dashboard' element={<CapabilityAssessmentDashboard/>}>
         </Route>
         <Route path='/feature-assessment-dashboard' element={<FeaturesAssessmentDashboard/>}>
         </Route>
