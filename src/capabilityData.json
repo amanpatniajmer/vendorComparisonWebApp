@@ -1,166 +1,31 @@
 {
     "WFM Capabilities": {
-        "Forecasting": [
-            25,
-            30,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-        ],
-        "Capacity Planning": [
-            25,
-            30,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-        ],
-        "Scheduling": [
-            25,
-            30,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-        ],
-        "Scenario Modelling": [
-            25,
-            30,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-        ],
-        "Real-time Management": [
-            25,
-            30,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-        ]
+        "Forecasting": [75,75,100,75,50,50,75,50],
+        "Capacity Planning": [75,50,75,50,50,50,50,50],
+        "Scheduling": [100,75,100,75,75,50,50,50],
+        "Scenario Modelling": [100,50,100,100,50,75,25,0],
+        "Real-time Management": [100,75,100,100,75,25,25,50]
     },
     "Integration & Deployment": {
-        "Integration with 3rd Party tools": [
-            25,
-            30,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-        ],
-        "Ease of Deployment": [
-            25,
-            30,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-        ]
-    },
-    "AI Capabilities": {
-        "AI based Forecasting": [
-            25,
-            30,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-        ]
+        "Integration with 3rd Party tools": [50,75,100,50,75,50,75,75],
+        "Ease of Deployment": [100,75,75,100,75,75,75,50]
     },
     "Web Portal & Employment Self-Service": {
-        "User Friendliness of Web Portal": [
-            25,
-            30,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-        ],
-        "Employee Self Service options": [
-            25,
-            30,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-        ]
+        "User Friendliness of Web Portal": [50,75,100,75,75,100,75,75],
+        "Employee Self Service options": [75,75,100,100,75,100,50,50]
+    },
+    "AI Capabilities": {
+        "AI based Forecasting": [25,50,75,50,50,50,75,50]
     },
     "AI based Scheduling": {
-        "Skill use Assessment Intelligence": [
-            25,
-            30,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-        ],
-        "Schedule Efficiency": [
-            25,
-            30,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-        ]
+        "Skill use Assessment Intelligence": [25,50,75,25,25,25,0,0],
+        "Schedule Efficiency": [25,50,75,75,75,25,50,25]
     },
     "Training Services": {
-        "Self-paced Training modules": [
-            25,
-            30,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-        ],
-        "Instructor-led Training": [
-            25,
-            30,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-        ]
+        "Self-paced Training modules": [50,50,50,50,50,50,50,75],
+        "Instructor-led Training": [50,100,100,100,50,50,75,75]
     },
     "Automated Quality Management": {
-        "Automated QM Scoring": [
-            25,
-            30,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-        ]
+        "Automated QM Scoring": [0,50,75,100,25,25,0,50]
     }
 }
