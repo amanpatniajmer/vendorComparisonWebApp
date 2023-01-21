@@ -1,17 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import ComparisonForm from '../Components/ComparisonForm';
 import Header from '../Components/Header'
 import TableHeader from '../Components/Table/TableHeader'
-import TablePartiton from '../Components/Table/TablePartiton';
-import { filterArray, filterObject, downloadImagePDF, downloadTablePDF, downloadCapabilitiesCSV, downloadCapabilitiesExcel } from '../Utils/utils';
-import allData from '../capabilityData.json'
+import { filterArray, downloadImagePDF, downloadTablePDF, downloadCapabilitiesExcel, getAllHeadings } from '../Utils/utils';
+import rawData from '../Data/capabilitiesDataRaw.json'
+import TableRow from '../Components/Table/TableRow';
+import TableBreak from '../Components/Table/TableBreak';
 
 const CapabilityAssessmentDashboard = ({setActive}) => {
     let location = useLocation();
-    const [queryInBinary, setQueryInBinary] = useState('00000000')
+    const [queryInBinary, setQueryInBinary] = useState('')
+    const [allComparisons, setAllComparisons] = useState([])
+    const [allHeadings, setAllHeadings] = useState([])
+    const [currentHeadings, setCurrentHeadings] = useState([])
 
-    let allComparisons = ["ASPECT","CXOne", "NICE", "Verint", "Calabrio", "Genesys Cloud", "AWS", "Playvox"];
+    useEffect(() => {
+        let allHeadings = getAllHeadings(rawData)
+        setAllHeadings(allHeadings)
+        setAllComparisons(allHeadings.slice(2, 11))
+    }, [])
 
     useEffect(() => {
         setActive("Capabilities")
@@ -23,6 +31,9 @@ const CapabilityAssessmentDashboard = ({setActive}) => {
         // eslint-disable-next-line
     }, [location])
     
+    useEffect(()=>{
+        setCurrentHeadings(filterArray(allHeadings, "01"+queryInBinary))
+    }, [queryInBinary, allHeadings])
     
   return (
     <>
@@ -33,8 +44,15 @@ const CapabilityAssessmentDashboard = ({setActive}) => {
         <table id='table'>
             <TableHeader headings={["CAPABILITY ASSESSMENT", ...filterArray(allComparisons, queryInBinary)]}/>
             <tbody>
-                {Object.entries(allData).map((val, i)=>{
-                    return <TablePartiton key={i} breakText={val[0]} dataObject={filterObject(val[1], queryInBinary)} mode={1}/>
+                {rawData.map((val, i)=>{
+                    if (val["Capability"] !== ""){
+                        return <Fragment key={i}>
+                        <TableBreak breakText={val["Capability"]}/>
+                        <TableRow dataObject={val} headingsArray={currentHeadings} mode={1}/>
+                        </Fragment>
+                    }
+                    else 
+                    return <TableRow key={i} dataObject={val} headingsArray={currentHeadings} mode={1}/>
                 })}
             </tbody>
         </table>
@@ -42,11 +60,12 @@ const CapabilityAssessmentDashboard = ({setActive}) => {
         <div className='controls'>
             <div className='left'>
             </div>
-            <div className='right'>
+            <div>
                 <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
                 <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
-                <button onClick={()=>downloadCapabilitiesCSV(allData, allComparisons, queryInBinary)}>Download CSV</button>
-                <button onClick={()=>downloadCapabilitiesExcel(allData, allComparisons, queryInBinary)}>Download Excel</button>
+                <button onClick={()=>downloadCapabilitiesExcel(rawData, allHeadings, queryInBinary)}>Download Excel</button>
+            </div>
+            <div className='right'>
                 <Link to={`/feature-assessment-dashboard?q=${queryInBinary}`}><button className='next'>Next</button></Link>
             </div>
         </div>

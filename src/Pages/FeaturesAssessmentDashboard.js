@@ -3,25 +3,55 @@ import { Link, useLocation } from 'react-router-dom';
 import ComparisonForm from '../Components/ComparisonForm';
 import Header from '../Components/Header'
 import TableHeader from '../Components/Table/TableHeader'
-import TablePartiton from '../Components/Table/TablePartiton';
-import { downloadFeaturesCSV, filterArray, filterObject, downloadImagePDF, downloadTablePDF, downloadFeaturesExcel } from '../Utils/utils';
-import allData from '../featuresData.json'
+import { filterArray, downloadImagePDF, downloadTablePDF, downloadFeaturesExcel, getAllHeadings } from '../Utils/utils';
+import rawData from '../Data/featuresDataRaw.json'
+import TableRow from '../Components/Table/TableRow';
 
 const FeaturesAssessmentDashboard = ({setActive}) => {
     let location = useLocation();
-    const [queryInBinary, setQueryInBinary] = useState('00000000')
+    const [queryInBinary, setQueryInBinary] = useState('')
 
-    let allComparisons = ["ASPECT","CXOne", "NICE", "Verint", "Calabrio", "Genesys Cloud", "AWS", "Playvox"];
+    const [allComparisons, setAllComparisons] = useState([])
+    const [allHeadings, setAllHeadings] = useState([])
+    const [currentHeadings, setCurrentHeadings] = useState([])
+    const [sectionLengths, setSectionLengths] = useState({})
          
+    useEffect(() => {
+        let allHeadings = getAllHeadings(rawData)
+        setAllHeadings(allHeadings)
+        setAllComparisons(allHeadings.slice(2, 11))
+        updateSectionLengths()
+    }, [])
+
+    function updateSectionLengths() {
+        let sectionLengths = {}
+        let currentSectionLength = 1;
+        let i;
+        for (i in rawData) {
+            if (i === "0") continue;
+            if (rawData[i]["Capability"] !== "") {
+                sectionLengths[i - currentSectionLength] = currentSectionLength;
+                currentSectionLength = 1;
+            }
+            else currentSectionLength++;
+        }
+        if (currentSectionLength !== 1) sectionLengths[i - currentSectionLength + 1] = currentSectionLength;
+        setSectionLengths(sectionLengths);
+    }
+
     useEffect(() => {
         setActive("Features")
         const { search } = location;
         let query = new URLSearchParams(search).get('q');
-        if (query != null) {
+        if (query !== null) {
             setQueryInBinary(query)
         }
         // eslint-disable-next-line
     }, [location])
+
+    useEffect(()=>{
+        setCurrentHeadings(filterArray(allHeadings, "11"+queryInBinary))
+    }, [queryInBinary, allHeadings])
     
   return (
     <>
@@ -32,8 +62,13 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
         <table id='table'>
             <TableHeader headings={["Capability", "Features", ...filterArray(allComparisons, queryInBinary)]}/>
             <tbody>
-                {Object.entries(allData).map((val, i)=>{
+                {/* {Object.entries(allData).map((val, i)=>{
                     return <TablePartiton key={i} breakText={val[0]} dataObject={filterObject(val[1], queryInBinary)} firstRowSpan={true} mode={2}/>
+                })} */}
+                {rawData.map((val, i)=>{
+                    /* return <TablePartiton key={i} breakText={val["Capability"]} dataObject={filterObject(val[1], queryInBinary)} firstRowSpan={true} mode={2}/> */
+                    if (val["Capability"] !== "") return <TableRow mode={2} key={i} dataObject={val} headingsArray={currentHeadings} rowSpan={[sectionLengths[i]]}/>
+                    else return <TableRow mode={2} key={i} dataObject={val} headingsArray={currentHeadings}/>
                 })}
             </tbody>
         </table>
@@ -42,11 +77,12 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
             <div className='left'>
                 <Link to={`/capability-assessment-dashboard?q=${queryInBinary}`}><button className='prev'>Previous</button></Link>
             </div>
-            <div className='right'>
+            <div>
                 <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
                 <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
-                <button onClick={()=>downloadFeaturesCSV(allData, allComparisons, queryInBinary)}>Download CSV</button>
-                <button onClick={()=>downloadFeaturesExcel(allData, allComparisons, queryInBinary)}>Download Excel</button>
+                <button onClick={()=>downloadFeaturesExcel(rawData, allHeadings, queryInBinary)}>Download Excel</button>
+            </div>
+            <div className='right'>
                 <Link to={`/activities-assessment-dashboard?q=${queryInBinary}`}><button className='next'>Next</button></Link>
             </div>
         </div>

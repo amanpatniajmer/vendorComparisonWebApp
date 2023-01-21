@@ -51,8 +51,11 @@ table td, th{
 
 .dashboard {
   margin: auto;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+}
+
+#tableDiv {
+  overflow-x: scroll;
 }
 
 .controls button{
@@ -123,7 +126,7 @@ table td, th{
 }
 .controls {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 10px 100px 20px 100px;
 }
 
@@ -165,12 +168,11 @@ td.e-4 {
 }
 
 td.e-Y{
-  background-color: greenyellow;
-  text-decoration-color:#ffcccc ;
+  color: green;
 }
 
 td.e-N{
-  background-color: orangered;
+  color: red;
 }
 
 .navbar {
@@ -211,4 +213,8 @@ td.e-N{
 
 .center {
   text-align: center;
+}
+
+.tableBreak {
+  background-color: rgb(187, 184, 184);
 }

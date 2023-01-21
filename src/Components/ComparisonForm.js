@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
+import { equalizeQueryString } from '../Utils/utils';
 
 const ComparisonForm = ({comparisonKeys=[]}) => {
     let location = useLocation();
-    const [queryInBinary, setQueryInBinary] = useState('00000000')
+    let length = comparisonKeys.length;
+    const [queryInBinary, setQueryInBinary] = useState('0'.repeat(length))
     let navigate = useNavigate();
-    // adding state to hold checked status of Select All checkbox
     const [selectAll, setSelectAll] = useState(false);
 
     function invertIndex(i) {
-        let trail="";
-        for (let p=queryInBinary.length;p<8;p++){
-            trail+="0"
-        }
-        let newQuery = queryInBinary + trail;
+        let newQuery = queryInBinary;
         let start = newQuery.slice(0,i);
         let end = newQuery.slice(i+1);
         if (newQuery.at(i) === '1') {
@@ -32,7 +29,7 @@ const ComparisonForm = ({comparisonKeys=[]}) => {
 
     // function to handle Select All checkbox
     function handleSelectAll(e) {
-        let newQuery = queryInBinary;
+        let newQuery = queryInBinary;        
         if (e.target.checked) {
             newQuery = newQuery.replace(/0/g, '1');
             setSelectAll(true);
@@ -52,15 +49,20 @@ const ComparisonForm = ({comparisonKeys=[]}) => {
         }
     }, [location])
 
+    useEffect(()=>{
+        let newQuery = equalizeQueryString(queryInBinary, comparisonKeys.length)
+        if (queryInBinary !== newQuery) navigate(window.location.pathname + "?q=" + newQuery);
+        //eslint-disable-next-line
+    }, [location, comparisonKeys, queryInBinary])
+
   return (
     <div>
         
         <br/>
         <form id="comparisonForm">
-            
             {comparisonKeys.map((key, i) => 
                 <div key={key}>
-                <input onChange={()=> {invertIndex(i)}} type='checkbox' id={key} value={key} checked={queryInBinary[i]==='1'} disabled={selectAll}/>
+                <input onChange={()=> {invertIndex(i)}} type='checkbox' id={key} value={key} checked={queryInBinary[i]==='1'}/>
                 <label htmlFor={key}>{key}</label>
                 </div>
             )}

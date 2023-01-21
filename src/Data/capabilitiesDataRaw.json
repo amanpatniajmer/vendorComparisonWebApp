@@ -1,0 +1,152 @@
+[
+    {
+      "Capability": "WFM Capabilities",
+      "Features": "Forecasting",
+      "ASPECT": 25,
+      "CXOne": 30,
+      "NICE": 1,
+      "Verint": 2,
+      "AWS": 5,
+      "Playvox": 6
+    },
+    {
+      "Capability": "",
+      "Features": "Capacity Planning",
+      "ASPECT": 25,
+      "CXOne": 30,
+      "NICE": 1,
+      "Verint": 2,
+      "AWS": 5,
+      "Playvox": 6
+    },
+    {
+      "Capability": "",
+      "Features": "Scheduling",
+      "ASPECT": 25,
+      "CXOne": 30,
+      "NICE": 1,
+      "Verint": 2,
+      "AWS": 5,
+      "Playvox": 6
+    },
+    {
+      "Capability": "",
+      "Features": "Scenario Modelling",
+      "ASPECT": 25,
+      "CXOne": 30,
+      "NICE": 1,
+      "Verint": 2,
+      "AWS": 5,
+      "Playvox": 6
+    },
+    {
+      "Capability": "",
+      "Features": "Real-time Management",
+      "ASPECT": 25,
+      "CXOne": 30,
+      "NICE": 1,
+      "Verint": 2,
+      "AWS": 5,
+      "Playvox": 6
+    },
+    {
+      "Capability": "Integration & Deployment",
+      "Features": "Integration with 3rd Party tools",
+      "ASPECT": 25,
+      "CXOne": 30,
+      "NICE": 1,
+      "Verint": 2,
+      "AWS": 5,
+      "Playvox": 6
+    },
+    {
+      "Capability": "",
+      "Features": "Ease of Deployment",
+      "ASPECT": 25,
+      "CXOne": 30,
+      "NICE": 1,
+      "Verint": 2,
+      "AWS": 5,
+      "Playvox": 6
+    },
+    {
+      "Capability": "AI Capabilities",
+      "Features": "AI based Forecasting",
+      "ASPECT": 25,
+      "CXOne": 30,
+      "NICE": 1,
+      "Verint": 2,
+      "AWS": 5,
+      "Playvox": 6
+    },
+    {
+      "Capability": "Web Portal & Employment Self-Service",
+      "Features": "User Friendliness of Web Portal",
+      "ASPECT": 25,
+      "CXOne": 30,
+      "NICE": 1,
+      "Verint": 2,
+      "AWS": 5,
+      "Playvox": 6
+    },
+    {
+      "Capability": "",
+      "Features": "Employee Self Service options",
+      "ASPECT": 25,
+      "CXOne": 30,
+      "NICE": 1,
+      "Verint": 2,
+      "AWS": 5,
+      "Playvox": 6
+    },
+    {
+      "Capability": "AI based Scheduling",
+      "Features": "Skill use Assessment Intelligence",
+      "ASPECT": 25,
+      "CXOne": 30,
+      "NICE": 1,
+      "Verint": 2,
+      "AWS": 5,
+      "Playvox": 6
+    },
+    {
+      "Capability": "",
+      "Features": "Schedule Efficiency",
+      "ASPECT": 25,
+      "CXOne": 30,
+      "NICE": 1,
+      "Verint": 2,
+      "AWS": 5,
+      "Playvox": 6
+    },
+    {
+      "Capability": "Training Services",
+      "Features": "Self-paced Training modules",
+      "ASPECT": 25,
+      "CXOne": 30,
+      "NICE": 1,
+      "Verint": 2,
+      "AWS": 5,
+      "Playvox": 6
+    },
+    {
+      "Capability": "",
+      "Features": "Instructor-led Training",
+      "ASPECT": 25,
+      "CXOne": 30,
+      "NICE": 1,
+      "Verint": 2,
+      "AWS": 5,
+      "Playvox": 6
+    },
+    {
+      "Capability": "Automated Quality Management",
+      "Features": "Automated QM Scoring",
+      "ASPECT": 25,
+      "CXOne": 30,
+      "NICE": 1,
+      "Verint": 2,
+      "AWS": 5,
+      "Playvox": 6
+    }
+  ]

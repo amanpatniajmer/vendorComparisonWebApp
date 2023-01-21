@@ -759,7 +759,7 @@
      "Description": "To calculate earned time, based on the type of time off"
     },
     {
-     "S.No": 10.299999999999999,
+     "S.No": 10.3,
      "Activities": "Time Off Rules",
      "Aspect": "Y",
      "CXone": "Y",
@@ -772,7 +772,7 @@
      "Description": "Define the parameters, and types of time off, that govern the use of bidding through web modules (Supervisor and Agent)"
     },
     {
-     "S.No": 10.399999999999999,
+     "S.No": 10.4,
      "Activities": "Time Off Groups",
      "Aspect": "Y",
      "CXone": "Y",
@@ -785,7 +785,7 @@
      "Description": "To define groups for Time Off types and assign rules to a group"
     },
     {
-     "S.No": 10.499999999999998,
+     "S.No": 10.5,
      "Activities": "Time Off Summary",
      "Aspect": "Y",
      "CXone": "Y",
@@ -798,7 +798,7 @@
      "Description": "Calculate the hours earned, for each agent for each type of time off"
     },
     {
-     "S.No": 10.599999999999998,
+     "S.No": 10.6,
      "Activities": "Time Off Parameters",
      "Aspect": "Y",
      "CXone": "Y",
@@ -811,7 +811,7 @@
      "Description": "Define the parameters, and types of time off, that govern the use of bidding through web modules (Supervisor and Agent)"
     },
     {
-     "S.No": 10.699999999999998,
+     "S.No": 10.7,
      "Activities": "Time Off Allotment",
      "Aspect": "Y",
      "CXone": "Y",
@@ -862,7 +862,6 @@
      "Playvox": "Y",
      "Description": "To view and analyze long-term forecasts for a contact type. Changes made to the forecast could show the impact to the staffing requirements. Used as a Cap Planer"
     },
-    null,
     {
      "Activities": "Count of  \"Yes\"",
      "Aspect": 63,

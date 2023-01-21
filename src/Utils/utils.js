@@ -1,6 +1,5 @@
 import html2canvas from 'html2canvas';
 import jsPDF from "jspdf";
-import exportFromJSON from 'export-from-json'  
 import { utils, writeFileXLSX } from 'xlsx';
 
 export function filterArray(data, queryInBinary) {
@@ -62,88 +61,33 @@ export function downloadTablePDF(tableDivID='tableDiv', title='Table') {
     win.close()
 }
 
-function convertFeaturesToRawForm(dataObject, headings, queryInBinary) {
-    let data = JSON.parse(JSON.stringify(dataObject))
-    for (let key in data) {
-        data[key] = filterObject(data[key], queryInBinary)
-    }
+function filterData(dataObject={}, headings=[], queryInBinary) {
     headings = filterArray(headings, queryInBinary)
-    let newData = []
-    for (let capability in data) {
-        let first=true;
-        for (let feature in data[capability]) {
-            let newRow = {}
-            if (first) {
-                newRow["Capability"] = capability;
-                first=!first
-            }
-            else newRow["Capability"] = "";
-            newRow["Features"] = feature
-            for (let i in data[capability][feature]) {
-                newRow[headings[i]] = data[capability][feature][i]
-            }
-            newData.push(newRow)
-        }
-    }
-    console.log(newData)
-    return newData
-}
-
-function convertActivitiesToRawForm(dataObject, headings, queryInBinary) {
     let data = JSON.parse(JSON.stringify(dataObject))
-    for (let key in data) {
-        data[key] = filterArray(data[key], "11"+queryInBinary)
-    }
-    headings = filterArray(headings, "11"+queryInBinary)
-    headings.unshift("S.No", "Activities")
-    let newData = []
-
+    console.log(data)
     for (let i in data) {
-        let newRow= {};
-        for (let j in data[i]) {
-            newRow[headings[j]] = data[i][j]
+        for (let key in data[i]) {
+            if(!headings.includes(key)) 
+                delete data[i][key]
         }
-        newData.push(newRow)
-        newRow = {}
     }
-    return newData;
-}
-
-export function downloadFeaturesCSV(dataObject, headings, queryInBinary) {
-    let newData = convertFeaturesToRawForm(dataObject, headings, queryInBinary)
-    const fileName = 'features'  
-    const exportType = 'csv'
-    exportFromJSON({data: newData, fileName, exportType}) 
-}
-
-export function downloadActivitiesCSV(dataObject, headings, queryInBinary) {
-    let newData = convertActivitiesToRawForm(dataObject, headings, queryInBinary)
-    const fileName = 'activities'  
-    const exportType = 'csv'
-    exportFromJSON({data: newData, fileName, exportType}) 
-}
-
-export function downloadCapabilitiesCSV(dataObject, headings, queryInBinary) {
-    let newData = convertFeaturesToRawForm(dataObject, headings, queryInBinary)
-    const fileName = 'capabilities'  
-    const exportType = 'csv'
-    exportFromJSON({data: newData, fileName, exportType}) 
+    return data;
 }
 
 export function downloadCapabilitiesExcel(dataObject, headings, queryInBinary) {
-    let newData = convertFeaturesToRawForm(dataObject, headings, queryInBinary)
+    let newData = filterData(dataObject, headings, "11"+queryInBinary)
     const fileName = 'capabilities'  
     downloadExcel(newData, fileName)
 }
 
 export function downloadFeaturesExcel(dataObject, headings, queryInBinary) {
-    let newData = convertFeaturesToRawForm(dataObject, headings, queryInBinary)
+    let newData = filterData(dataObject, headings, "11"+queryInBinary)
     const fileName = 'features'  
     downloadExcel(newData, fileName)
 }
 
 export function downloadActivitiesExcel(dataObject, headings, queryInBinary) {
-    let newData = convertActivitiesToRawForm(dataObject, headings, queryInBinary)
+    let newData = filterData(dataObject, headings, "11"+queryInBinary+"1")
     const fileName = 'activities'  
     downloadExcel(newData, fileName)
 }
@@ -153,4 +97,26 @@ function downloadExcel(newData, fileName) {
     const wb = utils.book_new();
     utils.book_append_sheet(wb, ws, fileName);
     writeFileXLSX(wb, `${fileName}.xlsx`);
+}
+
+export function getAllHeadings(data) {
+    let headings = new Set();
+    for (let i in data) {
+        for (let key in data[i]) {
+            headings.add(key)
+        }
+    }
+    return Array.from(headings);
+}
+
+export function equalizeQueryString(queryInBinary, length) {
+    let newQuery = queryInBinary;
+    if (length - queryInBinary.length > 0) {
+        let trail = '0'.repeat(length - queryInBinary.length);
+        newQuery += trail;
+    }
+    else {
+        newQuery = newQuery.substring(0, length); 
+    }
+    return newQuery;
 }
