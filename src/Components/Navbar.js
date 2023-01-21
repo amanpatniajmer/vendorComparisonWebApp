@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import Header from './Header'
 
 const Navbar = ({heading="Dashboard", active="Home"}) => {
+    const [query, setQuery] = useState(window.location.search)
+    let location = useLocation();
 
     useEffect(() => {
         document.querySelectorAll(".navbar ul li a").forEach((item) => {
@@ -12,6 +14,10 @@ const Navbar = ({heading="Dashboard", active="Home"}) => {
             else item.className = "";
         });
     }, [active])
+
+    useEffect(()=>{
+        setQuery(window.location.search)
+    }, [location])
     
   return (
     <div className='navbar'>
@@ -21,13 +27,13 @@ const Navbar = ({heading="Dashboard", active="Home"}) => {
             <Link to='/' name="Home">Home</Link>
             </li>
             <li>
-            <Link to='/capability-assessment-dashboard' name="Capabilities">Capabilities</Link>
+            <Link to={'/capability-assessment-dashboard' + query} name="Capabilities">Capabilities</Link>
             </li>
             <li>
-            <Link to='/feature-assessment-dashboard' name="Features">Features</Link>
+            <Link to={'/feature-assessment-dashboard' + query} name="Features">Features</Link>
             </li>
             <li>
-            <Link to='/activities-assessment-dashboard' name="Activities">Activities</Link>
+            <Link to={'/activities-assessment-dashboard' + query} name="Activities">Activities</Link>
             </li>
         </ul>
     </div>
