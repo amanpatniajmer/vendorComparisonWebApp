@@ -25,7 +25,7 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
         const { search } = location;
         let query = new URLSearchParams(search).get('q');
         if (query !== null) {
-            setQueryInBinary()
+            setQueryInBinary(query)
         }
         //eslint-disable-next-line
     }, [location])
@@ -48,7 +48,9 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
                         if(i >= rawData.length - 3 && val !== null) {
                             return <TableRow key={i} dataObject={val} headingsArray={currentHeadings} mode={3}/>
                         }
-                        else if(val !== null) return <TableRow key={i} dataObject={val} headingsArray={currentHeadings} mode={3}/>
+                        else if(val !== null) {
+                            return <TableRow key={i} dataObject={val} headingsArray={currentHeadings} mode={3}/>
+                        }
                         else return ''
                     })}
                 </tbody>

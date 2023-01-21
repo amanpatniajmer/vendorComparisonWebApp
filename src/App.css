@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+:root {
+  --primary-color: rgb(117, 9, 171);
+}
+
 .header{
   line-height: 3rem;
   padding: 5px;
@@ -14,12 +18,12 @@ table{
   text-align: left;
   margin: 20px auto;
   border: 1px solid black;
-  width: 90%;
+  min-width: 80%;
 }
 
 table thead{
   width: 100%;
-  background-color: rgb(117, 9, 171);
+  background-color: var(--primary-color);
   color: white;
 }
 
@@ -56,10 +60,12 @@ table td, th{
 
 #tableDiv {
   overflow-x: scroll;
+  width: 90%;
+  margin: auto;
 }
 
 .controls button{
-  background-color: rgb(117, 9, 171);
+  background-color: var(--primary-color);
   color: white;
   border: black solid 1px;
   border-radius: 5px;
@@ -131,7 +137,7 @@ table td, th{
 }
 
 .controls button.next, button.prev{
-  background-color: rgb(117, 9, 171);
+  background-color: var(--primary-color);
   color: white;
 }
 
@@ -178,7 +184,7 @@ td.e-N{
 .navbar {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(117, 9, 171);
+  background-color: var(--primary-color);
   color: white;
 }
 

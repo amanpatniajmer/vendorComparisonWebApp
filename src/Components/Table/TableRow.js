@@ -2,7 +2,7 @@ import React from 'react'
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar'
 import ChangingProgressProvider from '../ChangingProgressProvider'
 
-const TableRow = ({dataArray=[], rowSpan=[], mode=0, dataObject = {}, headingsArray=[]}) => {
+const TableRow = ({rowSpan=[], mode=0, dataObject = {}, headingsArray=[]}) => {
 
   function getClassName(mode, value) {
     let className = ''
