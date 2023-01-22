@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import ComparisonForm from '../Components/ComparisonForm';
 import Header from '../Components/Header'
 import TableHeader from '../Components/Table/TableHeader'
-import { filterArray, downloadImagePDF, downloadTablePDF, downloadFeaturesExcel, getAllHeadings } from '../Utils/utils';
+import { filterArray, downloadImagePDF, downloadTablePDF, getAllHeadings, filterAndDownloadExcel } from '../Utils/utils';
 import rawData from '../Data/featuresDataRaw.json'
 import TableRow from '../Components/Table/TableRow';
 
@@ -80,7 +80,7 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
             <div>
                 <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
                 <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
-                <button onClick={()=>downloadFeaturesExcel(rawData, allHeadings, queryInBinary)}>Download Excel</button>
+                <button onClick={()=>filterAndDownloadExcel(rawData, allHeadings, "11"+queryInBinary, 'Features Assessment')}>Download Excel</button>
             </div>
             <div className='right'>
                 <Link to={`/activities-assessment-dashboard?q=${queryInBinary}`}><button className='next'>Next</button></Link>

@@ -61,10 +61,8 @@ export function downloadTablePDF(tableDivID='tableDiv', title='Table') {
     win.close()
 }
 
-function filterData(dataObject={}, headings=[], queryInBinary) {
-    headings = filterArray(headings, queryInBinary)
+function filterData(dataObject={}, headings=[]) {
     let data = JSON.parse(JSON.stringify(dataObject))
-    console.log(data)
     for (let i in data) {
         for (let key in data[i]) {
             if(!headings.includes(key)) 
@@ -74,28 +72,33 @@ function filterData(dataObject={}, headings=[], queryInBinary) {
     return data;
 }
 
-export function downloadCapabilitiesExcel(dataObject, headings, queryInBinary) {
-    let newData = filterData(dataObject, headings, "11"+queryInBinary)
-    const fileName = 'capabilities'  
+export function filterAndDownloadExcel(rawData, allHeadings, queryInBinary, fileName) {
+    let headings = filterArray(allHeadings, queryInBinary);
+    let newData = filterData(rawData, headings);
     downloadExcel(newData, fileName)
 }
 
-export function downloadFeaturesExcel(dataObject, headings, queryInBinary) {
-    let newData = filterData(dataObject, headings, "11"+queryInBinary)
-    const fileName = 'features'  
-    downloadExcel(newData, fileName)
+export function downloadAllExcel(dataObjectsArray=[], headings=[]) {
+    for (let i in dataObjectsArray) {
+        dataObjectsArray[i] = filterData(dataObjectsArray[i], headings)
+    }
+    let sheetNames = ["Capabilities", "Features", "Activities"]
+    downloadExcel(dataObjectsArray, 'data', sheetNames)
 }
 
-export function downloadActivitiesExcel(dataObject, headings, queryInBinary) {
-    let newData = filterData(dataObject, headings, "11"+queryInBinary+"1")
-    const fileName = 'activities'  
-    downloadExcel(newData, fileName)
-}
-
-function downloadExcel(newData, fileName) {
-    const ws = utils.json_to_sheet(newData);
+export function downloadExcel(data, fileName, sheetNames=[fileName]) {
     const wb = utils.book_new();
-    utils.book_append_sheet(wb, ws, fileName);
+    if (sheetNames.length > 1){
+        for (let i in data) {
+            const ws = utils.json_to_sheet(data[i])
+            utils.book_append_sheet(wb, ws, sheetNames[i])
+        }
+    }
+    else {
+        const ws = utils.json_to_sheet(data);
+        //const ws = utils.table_to_sheet(document.getElementById('table'))
+        utils.book_append_sheet(wb, ws, sheetNames[0]);
+    }
     writeFileXLSX(wb, `${fileName}.xlsx`);
 }
 

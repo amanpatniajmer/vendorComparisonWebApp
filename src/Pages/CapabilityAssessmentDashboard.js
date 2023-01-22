@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import ComparisonForm from '../Components/ComparisonForm';
 import Header from '../Components/Header'
 import TableHeader from '../Components/Table/TableHeader'
-import { filterArray, downloadImagePDF, downloadTablePDF, downloadCapabilitiesExcel, getAllHeadings } from '../Utils/utils';
+import { filterArray, downloadImagePDF, downloadTablePDF, getAllHeadings, filterAndDownloadExcel } from '../Utils/utils';
 import rawData from '../Data/capabilitiesDataRaw.json'
 import TableRow from '../Components/Table/TableRow';
 import TableBreak from '../Components/Table/TableBreak';
@@ -63,7 +63,7 @@ const CapabilityAssessmentDashboard = ({setActive}) => {
             <div>
                 <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
                 <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
-                <button onClick={()=>downloadCapabilitiesExcel(rawData, allHeadings, queryInBinary)}>Download Excel</button>
+                <button onClick={()=>filterAndDownloadExcel(rawData, allHeadings, "11"+queryInBinary, 'Capability Assessment')}>Download Excel</button>
             </div>
             <div className='right'>
                 <Link to={`/feature-assessment-dashboard?q=${queryInBinary}`}><button className='next'>Next</button></Link>

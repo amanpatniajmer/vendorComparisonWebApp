@@ -222,5 +222,10 @@ td.e-N{
 }
 
 .tableBreak {
-  background-color: rgb(187, 184, 184);
+  background-color: rgba(117, 9, 171, 0.15);
+}
+
+button.success {
+  background-color: green;
+  color: white;
 }

@@ -3,9 +3,11 @@ import { Link, useLocation } from 'react-router-dom';
 import ComparisonForm from '../Components/ComparisonForm';
 import Header from '../Components/Header';
 import TableHeader from '../Components/Table/TableHeader';
-import { filterArray, downloadImagePDF, downloadTablePDF, downloadActivitiesExcel, getAllHeadings } from '../Utils/utils';
+import { filterArray, downloadImagePDF, downloadTablePDF, getAllHeadings, downloadAllExcel, filterAndDownloadExcel } from '../Utils/utils';
 import TableRow from '../Components/Table/TableRow'
 import rawData from '../Data/activitiesDataRaw.json'
+import capabilitiesData from '../Data/capabilitiesDataRaw.json'
+import featuresData from '../Data/featuresDataRaw.json'
 
 const ActivitiesAssessmentDashboard = ({setActive}) => {
     let location = useLocation();
@@ -34,7 +36,18 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
         setCurrentHeadings(filterArray(allHeadings, "11"+queryInBinary+"0"))
     }, [queryInBinary, allHeadings])
     
-    
+    function getMergedHeadings() {
+        let data = [capabilitiesData, featuresData, rawData]
+        let headings = new Set();
+        for (let i in data) {
+            let curr = getAllHeadings(data[i]);
+            curr = filterArray(curr, "11"+queryInBinary+"1")
+            for (let x in curr) {
+                headings.add(curr[x])
+            }
+        }
+        return Array.from(headings)
+    }
   return (
     <>
         <Header heading={"Activities Assessment"} className='center'/>
@@ -63,7 +76,8 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
             <div>
                 <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
                 <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
-                <button onClick={()=>downloadActivitiesExcel(rawData, allHeadings, queryInBinary)}>Download Excel</button>
+                <button onClick={()=>filterAndDownloadExcel(rawData, allHeadings, "11"+queryInBinary+"1", 'Activities Assessment')}>Download Excel</button>
+                <button className='success' onClick={()=>downloadAllExcel([capabilitiesData, featuresData, rawData], getMergedHeadings())}>Download All Excel</button>
             </div>
             <div>
             </div>
