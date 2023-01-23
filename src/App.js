@@ -12,7 +12,7 @@ function App() {
   const [active, setActive] = useState("Home")
   return (
     <div className="App">
-      <Navbar active={active}/>
+      <Navbar active={active} heading={"Workforce Management Vendor Assessment"}/>
       <Routes>
         <Route path='/' element={<Home setActive={setActive}/>}>
         </Route>

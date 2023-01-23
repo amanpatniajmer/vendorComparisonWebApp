@@ -10,6 +10,7 @@
 .header{
   line-height: 3rem;
   padding: 5px;
+  font-size: x-large;
 }
 
 table{
@@ -223,9 +224,16 @@ td.e-N{
 
 .tableBreak {
   background-color: rgba(117, 9, 171, 0.15);
+  padding: 15px 0 15px 0;
 }
 
 button.success {
   background-color: green;
   color: white;
+}
+
+#legend {
+  width: 400px;
+  display: block;
+  margin: 20px auto 20px auto;
 }

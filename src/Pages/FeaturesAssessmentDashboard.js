@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import ComparisonForm from '../Components/ComparisonForm';
 import Header from '../Components/Header'
@@ -6,6 +6,7 @@ import TableHeader from '../Components/Table/TableHeader'
 import { filterArray, downloadImagePDF, downloadTablePDF, getAllHeadings, filterAndDownloadExcel } from '../Utils/utils';
 import rawData from '../Data/featuresDataRaw.json'
 import TableRow from '../Components/Table/TableRow';
+import TableBreak from '../Components/Table/TableBreak';
 
 const FeaturesAssessmentDashboard = ({setActive}) => {
     let location = useLocation();
@@ -67,7 +68,10 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
                 })} */}
                 {rawData.map((val, i)=>{
                     /* return <TablePartiton key={i} breakText={val["Capability"]} dataObject={filterObject(val[1], queryInBinary)} firstRowSpan={true} mode={2}/> */
-                    if (val["Capability"] !== "") return <TableRow mode={2} key={i} dataObject={val} headingsArray={currentHeadings} rowSpan={[sectionLengths[i]]}/>
+                    if (val["Capability"] !== "") return <Fragment key={i}>
+                        <TableBreak breakText={val["Capability"]}/>
+                        <TableRow mode={2} dataObject={val} headingsArray={currentHeadings} rowSpan={[sectionLengths[i]]}/>
+                    </Fragment>
                     else return <TableRow mode={2} key={i} dataObject={val} headingsArray={currentHeadings}/>
                 })}
             </tbody>

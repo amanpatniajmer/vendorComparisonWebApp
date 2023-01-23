@@ -7,6 +7,7 @@ import { filterArray, downloadImagePDF, downloadTablePDF, getAllHeadings, filter
 import rawData from '../Data/capabilitiesDataRaw.json'
 import TableRow from '../Components/Table/TableRow';
 import TableBreak from '../Components/Table/TableBreak';
+import legend from '../images/legend.png'
 
 const CapabilityAssessmentDashboard = ({setActive}) => {
     let location = useLocation();
@@ -40,6 +41,7 @@ const CapabilityAssessmentDashboard = ({setActive}) => {
         <Header heading={"Capability Assessment"} className='center'/>
         <ComparisonForm comparisonKeys={allComparisons}/>
         <div className='dashboard'>
+        <img src={legend} id='legend'/>
         <div id='tableDiv'>
         <table id='table'>
             <TableHeader headings={["CAPABILITY ASSESSMENT", ...filterArray(allComparisons, queryInBinary)]}/>
