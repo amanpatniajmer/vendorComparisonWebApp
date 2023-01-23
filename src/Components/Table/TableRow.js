@@ -4,10 +4,11 @@ import ChangingProgressProvider from '../ChangingProgressProvider'
 
 const TableRow = ({rowSpan=[], mode=0, dataObject = {}, headingsArray=[]}) => {
 
-  function getClassName(mode, value) {
+  function getClassName(mode, value, heading) {
     let className = ''
-    if (mode === 3 && (value ==="Y" || value === "N")) className = `e-${value} center`;
-    else if (mode === 2 && !isNaN(value)) className = `e-${value} center`
+    if (mode === 3 && (value ==="Y" || value === "N")) className = `e-${value}`;
+    else if (mode === 2 && !isNaN(value)) className = `e-${value}`
+    if (heading !== headingsArray[0] && heading !== headingsArray[1]) className += ' center';
     if (mode === 3 && dataObject["S.No"]%1 === 0) className += ' tableBreak';
     return className;
   }
@@ -57,7 +58,7 @@ const TableRow = ({rowSpan=[], mode=0, dataObject = {}, headingsArray=[]}) => {
           else if (mode === 2 && heading === 'Capability' && value === '')
             return ''
           else
-            return <td key={i} rowSpan={rowSpan[i]} className={getClassName(mode, value)}> {value} </td>
+            return <td key={i} rowSpan={rowSpan[i]} className={getClassName(mode, value, heading)}> {value} </td>
         })}
     </tr>
   )
