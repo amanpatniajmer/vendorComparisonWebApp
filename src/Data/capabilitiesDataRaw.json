@@ -1,152 +1,182 @@
 [
-    {
-      "Capability": "WFM Capabilities",
-      "Features": "Forecasting",
-      "ASPECT": 25,
-      "CXOne": 30,
-      "NICE": 1,
-      "Verint": 2,
-      "AWS": 5,
-      "Playvox": 6
-    },
-    {
-      "Capability": "",
-      "Features": "Capacity Planning",
-      "ASPECT": 25,
-      "CXOne": 30,
-      "NICE": 1,
-      "Verint": 2,
-      "AWS": 5,
-      "Playvox": 6
-    },
-    {
-      "Capability": "",
-      "Features": "Scheduling",
-      "ASPECT": 25,
-      "CXOne": 30,
-      "NICE": 1,
-      "Verint": 2,
-      "AWS": 5,
-      "Playvox": 6
-    },
-    {
-      "Capability": "",
-      "Features": "Scenario Modelling",
-      "ASPECT": 25,
-      "CXOne": 30,
-      "NICE": 1,
-      "Verint": 2,
-      "AWS": 5,
-      "Playvox": 6
-    },
-    {
-      "Capability": "",
-      "Features": "Real-time Management",
-      "ASPECT": 25,
-      "CXOne": 30,
-      "NICE": 1,
-      "Verint": 2,
-      "AWS": 5,
-      "Playvox": 6
-    },
-    {
-      "Capability": "Integration & Deployment",
-      "Features": "Integration with 3rd Party tools",
-      "ASPECT": 25,
-      "CXOne": 30,
-      "NICE": 1,
-      "Verint": 2,
-      "AWS": 5,
-      "Playvox": 6
-    },
-    {
-      "Capability": "",
-      "Features": "Ease of Deployment",
-      "ASPECT": 25,
-      "CXOne": 30,
-      "NICE": 1,
-      "Verint": 2,
-      "AWS": 5,
-      "Playvox": 6
-    },
-    {
-      "Capability": "AI Capabilities",
-      "Features": "AI based Forecasting",
-      "ASPECT": 25,
-      "CXOne": 30,
-      "NICE": 1,
-      "Verint": 2,
-      "AWS": 5,
-      "Playvox": 6
-    },
-    {
-      "Capability": "Web Portal & Employment Self-Service",
-      "Features": "User Friendliness of Web Portal",
-      "ASPECT": 25,
-      "CXOne": 30,
-      "NICE": 1,
-      "Verint": 2,
-      "AWS": 5,
-      "Playvox": 6
-    },
-    {
-      "Capability": "",
-      "Features": "Employee Self Service options",
-      "ASPECT": 25,
-      "CXOne": 30,
-      "NICE": 1,
-      "Verint": 2,
-      "AWS": 5,
-      "Playvox": 6
-    },
-    {
-      "Capability": "AI based Scheduling",
-      "Features": "Skill use Assessment Intelligence",
-      "ASPECT": 25,
-      "CXOne": 30,
-      "NICE": 1,
-      "Verint": 2,
-      "AWS": 5,
-      "Playvox": 6
-    },
-    {
-      "Capability": "",
-      "Features": "Schedule Efficiency",
-      "ASPECT": 25,
-      "CXOne": 30,
-      "NICE": 1,
-      "Verint": 2,
-      "AWS": 5,
-      "Playvox": 6
-    },
-    {
-      "Capability": "Training Services",
-      "Features": "Self-paced Training modules",
-      "ASPECT": 25,
-      "CXOne": 30,
-      "NICE": 1,
-      "Verint": 2,
-      "AWS": 5,
-      "Playvox": 6
-    },
-    {
-      "Capability": "",
-      "Features": "Instructor-led Training",
-      "ASPECT": 25,
-      "CXOne": 30,
-      "NICE": 1,
-      "Verint": 2,
-      "AWS": 5,
-      "Playvox": 6
-    },
-    {
-      "Capability": "Automated Quality Management",
-      "Features": "Automated QM Scoring",
-      "ASPECT": 25,
-      "CXOne": 30,
-      "NICE": 1,
-      "Verint": 2,
-      "AWS": 5,
-      "Playvox": 6
-    }
-  ]
+  {
+    "Capability": "WFM Capabilities",
+    "Features": "Forecasting",
+    "ASPECT": 75,
+    "CXOne": 75,
+    "NICE": 100,
+    "Verint": 75,
+    "Calabrio": 50,
+    "Genesys Cloud": 50,
+    "AWS": 75,
+    "Playvox": 50
+  },
+  {
+    "Capability": "",
+    "Features": "Capacity Planning",
+    "ASPECT": 75,
+    "CXOne": 50,
+    "NICE": 75,
+    "Verint": 50,
+    "Calabrio": 50,
+    "Genesys Cloud": 50,
+    "AWS": 50,
+    "Playvox": 50
+  },
+  {
+    "Capability": "",
+    "Features": "Scheduling",
+    "ASPECT": 100,
+    "CXOne": 75,
+    "NICE": 100,
+    "Verint": 75,
+    "Calabrio": 75,
+    "Genesys Cloud": 50,
+    "AWS": 50,
+    "Playvox": 50
+  },
+  {
+    "Capability": "",
+    "Features": "Scenario Modelling",
+    "ASPECT": 100,
+    "CXOne": 50,
+    "NICE": 100,
+    "Verint": 100,
+    "Calabrio": 50,
+    "Genesys Cloud": 75,
+    "AWS": 25,
+    "Playvox": 0
+  },
+  {
+    "Capability": "",
+    "Features": "Real-time Management",
+    "ASPECT": 100,
+    "CXOne": 75,
+    "NICE": 100,
+    "Verint": 100,
+    "Calabrio": 75,
+    "Genesys Cloud": 25,
+    "AWS": 25,
+    "Playvox": 50
+  },
+  {
+    "Capability": "Integration & Deployment",
+    "Features": "Integration with 3rd Party tools",
+    "ASPECT": 50,
+    "CXOne": 75,
+    "NICE": 100,
+    "Verint": 50,
+    "Calabrio": 75,
+    "Genesys Cloud": 50,
+    "AWS": 75,
+    "Playvox": 75
+  },
+  {
+    "Capability": "",
+    "Features": "Ease of Deployment",
+    "ASPECT": 100,
+    "CXOne": 75,
+    "NICE": 75,
+    "Verint": 100,
+    "Calabrio": 75,
+    "Genesys Cloud": 75,
+    "AWS": 75,
+    "Playvox": 50
+  },
+  {
+    "Capability": "Web Portal & Employment Self-Service",
+    "Features": "User Friendliness of Web Portal",
+    "ASPECT": 50,
+    "CXOne": 75,
+    "NICE": 100,
+    "Verint": 75,
+    "Calabrio": 75,
+    "Genesys Cloud": 100,
+    "AWS": 75,
+    "Playvox": 75
+  },
+  {
+    "Capability": "",
+    "Features": "Employee Self Service options",
+    "ASPECT": 75,
+    "CXOne": 75,
+    "NICE": 100,
+    "Verint": 100,
+    "Calabrio": 75,
+    "Genesys Cloud": 100,
+    "AWS": 50,
+    "Playvox": 50
+  },
+  {
+    "Capability": "AI Capabilities",
+    "Features": "AI based Forecasting",
+    "ASPECT": 25,
+    "CXOne": 50,
+    "NICE": 75,
+    "Verint": 50,
+    "Calabrio": 50,
+    "Genesys Cloud": 50,
+    "AWS": 75,
+    "Playvox": 50
+  },
+  {
+    "Capability": "AI based Scheduling",
+    "Features": "Skill use Assessment Intelligence",
+    "ASPECT": 25,
+    "CXOne": 50,
+    "NICE": 75,
+    "Verint": 25,
+    "Calabrio": 25,
+    "Genesys Cloud": 25,
+    "AWS": 0,
+    "Playvox": 0
+  },
+  {
+    "Capability": "",
+    "Features": "Schedule Efficiency",
+    "ASPECT": 25,
+    "CXOne": 50,
+    "NICE": 75,
+    "Verint": 75,
+    "Calabrio": 75,
+    "Genesys Cloud": 25,
+    "AWS": 50,
+    "Playvox": 25
+  },
+  {
+    "Capability": "Training Services",
+    "Features": "Self-paced Training modules",
+    "ASPECT": 50,
+    "CXOne": 50,
+    "NICE": 50,
+    "Verint": 50,
+    "Calabrio": 50,
+    "Genesys Cloud": 50,
+    "AWS": 50,
+    "Playvox": 75
+  },
+  {
+    "Capability": "",
+    "Features": "Instructor-led Training",
+    "ASPECT": 50,
+    "CXOne": 100,
+    "NICE": 100,
+    "Verint": 100,
+    "Calabrio": 50,
+    "Genesys Cloud": 50,
+    "AWS": 75,
+    "Playvox": 75
+  },
+  {
+    "Capability": "Automated Quality Management",
+    "Features": "Automated QM Scoring",
+    "ASPECT": 0,
+    "CXOne": 50,
+    "NICE": 75,
+    "Verint": 100,
+    "Calabrio": 25,
+    "Genesys Cloud": 25,
+    "AWS": 0,
+    "Playvox": 50
+  }
+]
