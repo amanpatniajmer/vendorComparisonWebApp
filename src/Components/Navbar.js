@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import Header from './Header'
 
-const Navbar = ({heading="Dashboard", active="Home"}) => {
+const Navbar = ({heading="Workforce Management Vendor Assessment", active="Home"}) => {
     const [query, setQuery] = useState(window.location.search)
     let location = useLocation();
 
