@@ -7,6 +7,8 @@ import { filterArray, downloadImagePDF, downloadTablePDF, getAllHeadings, filter
 import rawData from '../Data/featuresDataRaw.json'
 import TableRow from '../Components/Table/TableRow';
 import TableBreak from '../Components/Table/TableBreak';
+import TabsList from '../Components/TabsList';
+import RadarChart from '../Components/RadarChart';
 
 const FeaturesAssessmentDashboard = ({setActive}) => {
     let location = useLocation();
@@ -16,6 +18,8 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
     const [allHeadings, setAllHeadings] = useState([])
     const [currentHeadings, setCurrentHeadings] = useState([])
     const [sectionLengths, setSectionLengths] = useState({})
+    let tabsList = ['Table', 'Radar Chart', 'Bar Chart']
+    const [tab, setTab] = useState(tabsList[1])
          
     useEffect(() => {
         let allHeadings = getAllHeadings(rawData)
@@ -40,6 +44,40 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
         setSectionLengths(sectionLengths);
     }
 
+    function filterForChart(data){
+        let newData = []
+        for (let i in data) {
+            if (data[i]["Capability"] !== "" && data[i]["Capability"]!== "TOTAL") {
+                newData.push(data[i])
+            }
+        }
+        return newData;
+    }
+
+    function renderTab(activeTab){
+        switch (activeTab) {
+            case 'Table':
+                return <div id='tableDiv'>
+                <table id='table'>
+                    <TableHeader headings={["Capability", "Features", ...filterArray(allComparisons, queryInBinary)]}/>
+                    <tbody>
+                        {rawData.map((val, i)=>{
+                            if (val["Capability"] !== "") return <Fragment key={i}>
+                                <TableBreak breakText={val["Capability"]}/>
+                                <TableRow mode={2} dataObject={val} headingsArray={currentHeadings} rowSpan={[sectionLengths[i]]}/>
+                            </Fragment>
+                            else return <TableRow mode={2} key={i} dataObject={val} headingsArray={currentHeadings}/>
+                        })}
+                    </tbody>
+                </table>
+                </div>
+            case 'Radar Chart':
+                return <RadarChart rawData={filterForChart(rawData)} comparisons = {filterArray(currentHeadings, "00"+queryInBinary)}/>
+            default:
+                break;
+        }
+    }
+
     useEffect(() => {
         setActive("Features")
         const { search } = location;
@@ -59,24 +97,11 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
         <Header heading={"FEATURES ASSESSMENT - Market Leaders"} className='center'/>
         <ComparisonForm comparisonKeys={allComparisons}/>
         <div className='dashboard'>
-        <div id='tableDiv'>
-        <table id='table'>
-            <TableHeader headings={["Capability", "Features", ...filterArray(allComparisons, queryInBinary)]}/>
-            <tbody>
-                {/* {Object.entries(allData).map((val, i)=>{
-                    return <TablePartiton key={i} breakText={val[0]} dataObject={filterObject(val[1], queryInBinary)} firstRowSpan={true} mode={2}/>
-                })} */}
-                {rawData.map((val, i)=>{
-                    /* return <TablePartiton key={i} breakText={val["Capability"]} dataObject={filterObject(val[1], queryInBinary)} firstRowSpan={true} mode={2}/> */
-                    if (val["Capability"] !== "") return <Fragment key={i}>
-                        <TableBreak breakText={val["Capability"]}/>
-                        <TableRow mode={2} dataObject={val} headingsArray={currentHeadings} rowSpan={[sectionLengths[i]]}/>
-                    </Fragment>
-                    else return <TableRow mode={2} key={i} dataObject={val} headingsArray={currentHeadings}/>
-                })}
-            </tbody>
-        </table>
+        <TabsList tabsList={tabsList} activeTab={tab} setActiveTab={setTab}/>
+        <div id='tab'>
+            {renderTab(tab)}
         </div>
+        
         <div className='controls'>
             <div className='left'>
                 <Link to={`/capability-assessment-dashboard?q=${queryInBinary}`}><button className='prev'>Previous</button></Link>
