@@ -4,6 +4,7 @@ import {Radar} from 'react-chartjs-2'
 import 'chart.js/auto'
 
 const RadarChart = ({rawData=[], comparisons=[]}) => {
+    console.log(rawData, comparisons)
 
     function getComparisons() {
         

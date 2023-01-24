@@ -9,6 +9,7 @@ import TableRow from '../Components/Table/TableRow';
 import TableBreak from '../Components/Table/TableBreak';
 import TabsList from '../Components/TabsList';
 import RadarChart from '../Components/RadarChart';
+import BarChart from '../Components/BarChart';
 
 const FeaturesAssessmentDashboard = ({setActive}) => {
     let location = useLocation();
@@ -72,7 +73,9 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
                 </table>
                 </div>
             case 'Radar Chart':
-                return <RadarChart rawData={filterForChart(rawData)} comparisons = {filterArray(currentHeadings, "00"+queryInBinary)}/>
+                return <RadarChart rawData={filterForChart(rawData)} comparisons = {filterArray(allComparisons, queryInBinary)}/>
+            case 'Bar Chart':
+                return <BarChart rawData={filterForChart(rawData)} comparisons = {filterArray(allComparisons, queryInBinary)}/>
             default:
                 break;
         }
