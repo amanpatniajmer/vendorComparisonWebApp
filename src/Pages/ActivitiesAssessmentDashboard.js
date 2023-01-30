@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import ComparisonForm from '../Components/ComparisonForm';
 import Header from '../Components/Header';
@@ -10,6 +10,7 @@ import capabilitiesData from '../Data/capabilitiesDataRaw.json'
 import featuresData from '../Data/featuresDataRaw.json'
 import TabsList from '../Components/TabsList';
 import PolarChart from '../Components/PolarChart';
+import TableBreak from '../Components/Table/TableBreak';
 
 const ActivitiesAssessmentDashboard = ({setActive}) => {
     let location = useLocation();
@@ -66,7 +67,13 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
                     <TableHeader headings={filterArray(allHeadings, "11"+queryInBinary+"0")}/>
                     <tbody>
                         {rawData.map((val,i)=>{
-                            if(i >= rawData.length - 3 && val !== null) {
+                            if(i == rawData.length - 3 && val !== null) {
+                                return <Fragment key={i}>
+                                <TableBreak breakText="&nbsp;"/>
+                                <TableRow key={i} dataObject={val} headingsArray={currentHeadings} mode={3}/>
+                                </Fragment>
+                            }
+                            else if(i > rawData.length - 3 && val !== null) {
                                 return <TableRow key={i} dataObject={val} headingsArray={currentHeadings} mode={3}/>
                             }
                             else if(val !== null) {

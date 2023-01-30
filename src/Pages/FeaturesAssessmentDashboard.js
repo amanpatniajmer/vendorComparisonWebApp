@@ -19,8 +19,8 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
     const [allHeadings, setAllHeadings] = useState([])
     const [currentHeadings, setCurrentHeadings] = useState([])
     const [sectionLengths, setSectionLengths] = useState({})
-    let tabsList = ['Table', 'Radar Chart', 'Bar Chart']
-    const [tab, setTab] = useState(tabsList[1])
+    let tabsList = ['Radar Chart', 'Bar Chart', 'Table']
+    const [tab, setTab] = useState(tabsList[0])
          
     useEffect(() => {
         let allHeadings = getAllHeadings(rawData)
@@ -47,12 +47,42 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
 
     function filterForChart(data){
         let newData = []
+        let currentTotal = {}
+        let numberOfData = 0
         for (let i in data) {
             if (data[i]["Capability"] !== "" && data[i]["Capability"]!== "TOTAL") {
-                newData.push(data[i])
+                if (numberOfData !== 0) {
+                    newData.push(divideRow(currentTotal, numberOfData))
+                }
+                currentTotal = data[i]
+                numberOfData = 1;
+            }
+            else {
+                currentTotal = addRowsData(currentTotal, data[i])
+                numberOfData++;
             }
         }
         return newData;
+    }
+
+    function addRowsData (row1={}, row2={}) {
+        let finalRow = {...row2, ...row1}
+        console.log(finalRow)
+        for (let key in row2){
+            if(!Number.isNaN(Number(row2[key])) && row2[key] !== ""){
+                finalRow[key] = Number(row1[key]) + Number(row2[key])
+            }
+        }
+        return finalRow
+    }
+
+    function divideRow (row, number) {
+        for (let key in row){
+            if(!Number.isNaN(Number(row[key])) && row[key] !== ""){
+                row[key] = Number(row[key]) / number
+            }
+        }
+        return row
     }
 
     function renderTab(activeTab){
@@ -64,7 +94,7 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
                     <tbody>
                         {rawData.map((val, i)=>{
                             if (val["Capability"] !== "") return <Fragment key={i}>
-                                <TableBreak breakText={val["Capability"]}/>
+                                <TableBreak breakText="&nbsp;"/>
                                 <TableRow mode={2} dataObject={val} headingsArray={currentHeadings} rowSpan={[sectionLengths[i]]}/>
                             </Fragment>
                             else return <TableRow mode={2} key={i} dataObject={val} headingsArray={currentHeadings}/>
@@ -96,7 +126,7 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
     }, [queryInBinary, allHeadings])
     
   return (
-    <>
+    <div id = "Features">
         <Header heading={"FEATURES ASSESSMENT - Market Leaders"} className='center'/>
         <ComparisonForm comparisonKeys={allComparisons}/>
         <div className='dashboard'>
@@ -119,7 +149,7 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
             </div>
         </div>
         </div>
-    </>
+    </div>
   )
 }
 

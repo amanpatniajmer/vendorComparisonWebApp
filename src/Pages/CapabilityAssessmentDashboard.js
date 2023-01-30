@@ -37,7 +37,7 @@ const CapabilityAssessmentDashboard = ({setActive}) => {
     }, [queryInBinary, allHeadings])
     
   return (
-    <>
+    <div id="capability">
         <Header heading={"Capability Assessment"} className='center'/>
         <ComparisonForm comparisonKeys={allComparisons}/>
         <div className='dashboard'>
@@ -72,7 +72,7 @@ const CapabilityAssessmentDashboard = ({setActive}) => {
             </div>
         </div>
         </div>
-    </>
+    </div>
   )
 }
 

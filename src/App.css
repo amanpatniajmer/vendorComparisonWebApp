@@ -290,3 +290,12 @@ button.success {
 #homePage .content button{
   margin: 30px;
 }
+
+svg.CircularProgressbar {
+  border: 1px solid var(--primary-color);
+  border-radius: 50%;
+}
+
+#capability table {
+  min-width: 700px;
+}

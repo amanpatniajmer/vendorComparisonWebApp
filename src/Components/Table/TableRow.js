@@ -16,27 +16,6 @@ const TableRow = ({rowSpan=[], mode=0, dataObject = {}, headingsArray=[]}) => {
 
   return (
     <tr>
-        {/* {dataArray.map((element, i) => {
-          if (mode === 1 && !isNaN(element))
-            return <td key={i} rowSpan={rowSpan[i]}>
-              <div className='pie'>
-              <ChangingProgressProvider values={[0, element]}>
-                {percentage => (
-                <CircularProgressbar value={percentage} strokeWidth={50}
-                  styles={buildStyles({
-                    pathColor: "rgb(117, 9, 171)",
-                    trailColor: "rgb(200, 200, 200)",
-                    pathTransitionDuration: 0.7
-                  })}
-                  />
-                )}
-              </ChangingProgressProvider>
-          </div>
-               </td>
-          else
-            return <td key={i} rowSpan={rowSpan[i]} className={getClassName(mode, element)}> {element} </td>
-        })} */}
-
         {headingsArray.map((heading, i) => {
           let value = dataObject[heading]
           if (mode === 1 && !isNaN(value))
@@ -46,8 +25,8 @@ const TableRow = ({rowSpan=[], mode=0, dataObject = {}, headingsArray=[]}) => {
                 {percentage => (
                 <CircularProgressbar value={percentage} strokeWidth={50}
                   styles={buildStyles({
-                    pathColor: "rgb(117, 9, 171)",
-                    trailColor: "rgb(200, 200, 200)",
+                    pathColor: "rgb(126,1,255)",
+                    strokeLinecap : "50px",
                     pathTransitionDuration: 0.7
                   })}
                   />
