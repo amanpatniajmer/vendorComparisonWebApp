@@ -1,19 +1,42 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import ComparisonForm from '../Components/ComparisonForm'
 import Header from '../Components/Header'
+import homeImage from '../images/home.jpeg'
 
 const Home = ({setActive}) => {
+  let location = useLocation();
+  const [queryInBinary, setQueryInBinary] = useState('')
+
   let allComparisons = ["ASPECT","CXOne","NICE","Verint","Calabrio","Genesys Cloud","AWS","Playvox"]
 
   useEffect(() => {
     setActive("Home")
-  })
+    const { search } = location;
+    let query = new URLSearchParams(search).get('q');
+    if (query !== null) {
+        setQueryInBinary(query)
+    }
+    // eslint-disable-next-line
+}, [location])
+
+  function goTo(){
+
+  }
   
   return (
-    <>
-      <Header heading={"Please select - "} className='center'/>
-      <ComparisonForm comparisonKeys={allComparisons}/>
-    </>
+    <div id='homePage'>
+      <div>
+        <img src={homeImage}/>
+      </div>
+      <div className='content'>
+        <Header heading={"We bring our analysis on different workforce management disciplines across vendor partners with our industry experience and projects delivered."}/>
+        <br/><br/><br/>
+        {"Please select the vendor partners you would like to compare :"}
+        <ComparisonForm comparisonKeys={allComparisons}/>
+        <Link to={`/capability-assessment-dashboard?q=${queryInBinary}`}><button>Let`s compare!</button></Link>
+      </div>
+    </div>
   )
 }
 

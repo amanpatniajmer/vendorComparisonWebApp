@@ -15,7 +15,7 @@ const Navbar = ({heading="Dashboard", active="Home"}) => {
         <Header heading={heading}/>
         <ul>
             <li>
-            <Link to='/' className={active === "Home" ? 'active' : ''}>Home</Link>
+            <Link to={'/' + query} className={active === "Home" ? 'active' : ''}>Home</Link>
             </li>
             <li>
             <Link to={'/capability-assessment-dashboard' + query} className={active === "Capabilities" ? 'active' : ''}>Capabilities</Link>
