@@ -8,6 +8,8 @@ import TableRow from '../Components/Table/TableRow'
 import rawData from '../Data/activitiesDataRaw.json'
 import capabilitiesData from '../Data/capabilitiesDataRaw.json'
 import featuresData from '../Data/featuresDataRaw.json'
+import TabsList from '../Components/TabsList';
+import PolarChart from '../Components/PolarChart';
 
 const ActivitiesAssessmentDashboard = ({setActive}) => {
     let location = useLocation();
@@ -15,6 +17,8 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
     const [allComparisons, setAllComparisons] = useState([])
     const [allHeadings, setAllHeadings] = useState([])
     const [currentHeadings, setCurrentHeadings] = useState([])
+    let tabsList = ['Polar Area Chart', 'Table']
+    const [tab, setTab] = useState(tabsList[0])
 
     useEffect(() => {
         let allHeadings = getAllHeadings(rawData)
@@ -48,26 +52,44 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
         }
         return Array.from(headings)
     }
+
+    function filterForChart(data=[]){
+        let length = data.length;
+        return data[length-1];
+    }
+
+    function renderTab(activeTab) {
+        switch (activeTab) {
+            case 'Table':
+                return <div id="tableDiv">
+                <table id="table">
+                    <TableHeader headings={filterArray(allHeadings, "11"+queryInBinary+"0")}/>
+                    <tbody>
+                        {rawData.map((val,i)=>{
+                            if(i >= rawData.length - 3 && val !== null) {
+                                return <TableRow key={i} dataObject={val} headingsArray={currentHeadings} mode={3}/>
+                            }
+                            else if(val !== null) {
+                                return <TableRow key={i} dataObject={val} headingsArray={currentHeadings} mode={3}/>
+                            }
+                            else return ''
+                        })}
+                    </tbody>
+                </table>
+            </div>
+            
+            case 'Polar Area Chart':
+                return <PolarChart rawData={filterForChart(rawData)} comparisons = {filterArray(allComparisons, queryInBinary)} heading={'Percentage of "Yes"'}/>
+        }
+    }
   return (
-    <>
+    <div id="activities">
         <Header heading={"Activities Assessment"} className='center'/>
         <ComparisonForm comparisonKeys={allComparisons}/>
         <div className='dashboard'>
-            <div id="tableDiv">
-            <table id="table">
-                <TableHeader headings={filterArray(allHeadings, "11"+queryInBinary+"0")}/>
-                <tbody>
-                    {rawData.map((val,i)=>{
-                        if(i >= rawData.length - 3 && val !== null) {
-                            return <TableRow key={i} dataObject={val} headingsArray={currentHeadings} mode={3}/>
-                        }
-                        else if(val !== null) {
-                            return <TableRow key={i} dataObject={val} headingsArray={currentHeadings} mode={3}/>
-                        }
-                        else return ''
-                    })}
-                </tbody>
-            </table>
+        <TabsList tabsList={tabsList} activeTab={tab} setActiveTab={setTab}/>
+        <div id='tab'>
+            {renderTab(tab)}
         </div>
         <div className='controls'>
             <div>
@@ -83,7 +105,7 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
             </div>
         </div>
         </div>
-    </>
+    </div>
   )
 }
 
