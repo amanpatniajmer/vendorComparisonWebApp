@@ -26,7 +26,6 @@ const TableRow = ({rowSpan=[], mode=0, dataObject = {}, headingsArray=[]}) => {
                 <CircularProgressbar value={percentage} strokeWidth={50}
                   styles={buildStyles({
                     pathColor: "rgb(126,1,255)",
-                    strokeLinecap : "50px",
                     pathTransitionDuration: 0.7
                   })}
                   />
