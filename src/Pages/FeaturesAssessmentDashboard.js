@@ -128,6 +128,7 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
   return (
     <div id = "Features">
         <Header heading={"FEATURES ASSESSMENT - Market Leaders"} className='center'/>
+        <div className='subheading'>Comparing different features within capabilities for each of the Vendor partners to provide functional level differentiators.</div>
         <ComparisonForm comparisonKeys={allComparisons}/>
         <div className='dashboard'>
         <TabsList tabsList={tabsList} activeTab={tab} setActiveTab={setTab}/>

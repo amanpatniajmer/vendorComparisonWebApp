@@ -92,6 +92,7 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
   return (
     <div id="activities">
         <Header heading={"Activities Assessment"} className='center'/>
+        <div className='subheading'>Based on the features within each of the capabilities we also bring the comparison at an activity level.</div>
         <ComparisonForm comparisonKeys={allComparisons}/>
         <div className='dashboard'>
         <TabsList tabsList={tabsList} activeTab={tab} setActiveTab={setTab}/>
