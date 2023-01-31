@@ -2,6 +2,7 @@ import React from 'react'
 import 'chart.js/auto'
 import {Bar} from 'react-chartjs-2'
 import Header from './Header'
+import {colors} from '../Data/colors'
 
 const BarChart = ({rawData=[], comparisons = []}) => {
     let config ={}
@@ -9,11 +10,12 @@ const BarChart = ({rawData=[], comparisons = []}) => {
 
     const data = {
         labels: comparisons,
-        datasets: rawData.map((row)=>{
+        datasets: rawData.map((row, i)=>{
+          let length = colors.length
             return {
                   label: row['Capability'],
-                  backgroundColor: "rgb(255, 99, 132)",
-                  borderColor: "rgb(255, 99, 132)",
+                  backgroundColor: colors[i % length],
+                  borderColor: colors[i % length],
                   data: comparisons.map((val)=>row[val])
                 }
         })

@@ -67,7 +67,6 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
 
     function addRowsData (row1={}, row2={}) {
         let finalRow = {...row2, ...row1}
-        console.log(finalRow)
         for (let key in row2){
             if(!Number.isNaN(Number(row2[key])) && row2[key] !== ""){
                 finalRow[key] = Number(row1[key]) + Number(row2[key])

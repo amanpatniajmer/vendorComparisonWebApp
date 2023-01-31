@@ -2,24 +2,24 @@ import React, { useState } from 'react'
 import Header from './Header'
 import {Radar} from 'react-chartjs-2'
 import 'chart.js/auto'
+import {colors} from '../Data/colors'
 
 const RadarChart = ({rawData=[], comparisons=[]}) => {
-    console.log(rawData, comparisons)
-
-    function getComparisons() {
-        
+    function convertRGBtoRGBA(rgb='',opacity) {
+        let rgba = rgb.slice(0,3) + "a" + rgb.slice(3);
+        let length = rgba.length
+        rgba = rgba.slice(0, length-1) + `, ${opacity})`
+        return rgba
     }
-    let styles = [{backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgb(54, 162, 235)',
-                    pointBackgroundColor: 'rgb(54, 162, 235)',
-                    pointHoverBorderColor: 'rgb(54, 162, 235)'},
-                    {
-                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                        borderColor: 'rgb(255, 99, 132)',
-                        pointBackgroundColor: 'rgb(255, 99, 132)',
-                        pointHoverBorderColor: 'rgb(255, 99, 132)'
-                    }
-                ]
+    function getStyles(index) {
+      let length = colors.length;
+      return {
+        backgroundColor: convertRGBtoRGBA(colors[index % length], 0.2),
+        borderColor: colors[index % length],
+        pointBackgroundColor: colors[index % length],
+        pointHoverBorderColor: colors[index % length]
+      }
+    }
       let data = {
         labels: rawData.map((val,i)=>val['Capability']),
         
@@ -30,7 +30,7 @@ const RadarChart = ({rawData=[], comparisons=[]}) => {
                 fill: true,
                 pointBorderColor: '#fff',
                 pointHoverBackgroundColor: '#fff',
-                ...styles[i]
+                ...getStyles(i)
             }
         })
       };
