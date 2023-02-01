@@ -19,15 +19,11 @@ const Home = ({setActive}) => {
     }
     // eslint-disable-next-line
 }, [location])
-
-  function goTo(){
-
-  }
   
   return (
     <div id='homePage'>
       <div>
-        <img src={homeImage}/>
+        <img src={homeImage} alt='random home page'/>
       </div>
       <div className='content'>
         <Header heading={"We bring our analysis on different workforce management disciplines across vendor partners with our industry experience and projects delivered."}/>

@@ -41,7 +41,7 @@ const CapabilityAssessmentDashboard = ({setActive}) => {
         <Header heading={"Capability Assessment"} className='center'/>
         <ComparisonForm comparisonKeys={allComparisons}/>
         <div className='dashboard'>
-        <img src={legend} id='legend'/>
+        <img src={legend} id='legend' alt='legend'/>
         <div id='tableDiv'>
         <table id='table'>
             <TableHeader headings={["CAPABILITY ASSESSMENT", ...filterArray(allComparisons, queryInBinary)]}/>

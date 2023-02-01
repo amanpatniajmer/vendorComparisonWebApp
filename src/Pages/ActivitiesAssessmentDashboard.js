@@ -79,16 +79,16 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
                     <TableHeader headings={filterArray(allHeadings, "11"+queryInBinary+"0")}/>
                     <tbody>
                         {rawData.map((val,i)=>{
-                            if(i == rawData.length - 3 && val !== null) {
+                            if(i === rawData.length - 3 && val !== null) {
                                 return <Fragment key={i}>
                                 <TableBreak breakText="&nbsp;"/>
                                 <TableRow key={i} dataObject={val} headingsArray={currentHeadings} mode={3} className="success"/>
                                 </Fragment>
                             }
-                            else if(i == rawData.length - 2 && val !== null) {
+                            else if(i === rawData.length - 2 && val !== null) {
                                 return <TableRow key={i} dataObject={val} headingsArray={currentHeadings} mode={3} className="error"/>
                             }
-                            else if(i == rawData.length - 1 && val !== null) {
+                            else if(i === rawData.length - 1 && val !== null) {
                                 return <TableRow key={i} dataObject={val} headingsArray={currentHeadings} mode={3}/>
                             }
                             else if(val !== null) {
@@ -102,6 +102,9 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
             
             case 'Polar Area Chart':
                 return <PolarChart rawData={filterForChart(rawData)} comparisons = {filterArray(allComparisons, queryInBinary)} heading={'Percentage of "Yes"'}/>
+            
+            default:
+                break;
         }
     }
 

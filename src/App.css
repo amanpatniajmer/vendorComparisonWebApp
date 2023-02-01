@@ -56,8 +56,11 @@ table td, th{
 
 .dashboard {
   margin: auto;
-  width: fit-content;
+  width: auto;
+}
 
+#tab {
+  margin: auto;
 }
 
 #tableDiv {
@@ -241,7 +244,7 @@ button.success {
   display: flex;
   list-style-type: none;
   justify-content: space-evenly;
-  width: 100%;
+  width: 80vw;
   background: #e2ecfb;
   padding: 0;
   margin: 20px auto 0 auto;
@@ -267,6 +270,11 @@ button.success {
 }
 .radar-chart {
   margin: auto;
+  width: 40%;
+}
+.bar-chart {
+  margin: auto;
+  width: 50%;
 }
 
 #homePage {

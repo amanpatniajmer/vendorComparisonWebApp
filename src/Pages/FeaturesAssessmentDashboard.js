@@ -50,7 +50,7 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
         let currentTotal = {}
         let numberOfData = 0
         for (let i in data) {
-            if (data[i]["Capability"] !== "" && data[i]["Capability"]!== "TOTAL") {
+            if (data[i]["Capability"] !== "") {
                 if (numberOfData !== 0) {
                     newData.push(divideRow(currentTotal, numberOfData))
                 }

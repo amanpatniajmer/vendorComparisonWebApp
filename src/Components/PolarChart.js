@@ -3,7 +3,6 @@ import Header from './Header';
 import { PolarArea } from 'react-chartjs-2'
 import 'chart.js/auto'
 import {colors} from '../Data/colors'
-import { downloadCanvasAsImage } from '../Utils/utils';
 
 const PolarChart = ({rawData={}, comparisons=[], heading = ""}) => {
     const data = {
