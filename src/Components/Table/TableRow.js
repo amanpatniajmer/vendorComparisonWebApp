@@ -2,7 +2,7 @@ import React from 'react'
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar'
 import ChangingProgressProvider from '../ChangingProgressProvider'
 
-const TableRow = ({rowSpan=[], mode=0, dataObject = {}, headingsArray=[]}) => {
+const TableRow = ({rowSpan=[], mode=0, dataObject = {}, headingsArray=[], className=''}) => {
 
   function getClassName(mode, value, heading) {
     let className = ''
@@ -15,7 +15,7 @@ const TableRow = ({rowSpan=[], mode=0, dataObject = {}, headingsArray=[]}) => {
 
 
   return (
-    <tr>
+    <tr className={className}>
         {headingsArray.map((heading, i) => {
           let value = dataObject[heading]
           if (mode === 1 && !isNaN(value))

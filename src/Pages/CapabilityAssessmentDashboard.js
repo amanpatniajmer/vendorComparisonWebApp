@@ -39,7 +39,6 @@ const CapabilityAssessmentDashboard = ({setActive}) => {
   return (
     <div id="capability">
         <Header heading={"Capability Assessment"} className='center'/>
-        <div className='subheading'>We bring our analysis on different workforce management disciplines across vendor partners with our industry experience and projects delivered.</div>
         <ComparisonForm comparisonKeys={allComparisons}/>
         <div className='dashboard'>
         <img src={legend} id='legend'/>

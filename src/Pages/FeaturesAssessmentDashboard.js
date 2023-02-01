@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import ComparisonForm from '../Components/ComparisonForm';
 import Header from '../Components/Header'
 import TableHeader from '../Components/Table/TableHeader'
-import { filterArray, downloadImagePDF, downloadTablePDF, getAllHeadings, filterAndDownloadExcel } from '../Utils/utils';
+import { filterArray, downloadImagePDF, downloadTablePDF, getAllHeadings, filterAndDownloadExcel, downloadCanvasAsImage } from '../Utils/utils';
 import rawData from '../Data/featuresDataRaw.json'
 import TableRow from '../Components/Table/TableRow';
 import TableBreak from '../Components/Table/TableBreak';
@@ -19,7 +19,7 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
     const [allHeadings, setAllHeadings] = useState([])
     const [currentHeadings, setCurrentHeadings] = useState([])
     const [sectionLengths, setSectionLengths] = useState({})
-    let tabsList = ['Radar Chart', 'Bar Chart', 'Table']
+    let tabsList = ['Radar Chart', 'Bar Chart', 'Comparison Table']
     const [tab, setTab] = useState(tabsList[0])
          
     useEffect(() => {
@@ -86,7 +86,7 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
 
     function renderTab(activeTab){
         switch (activeTab) {
-            case 'Table':
+            case 'Comparison Table':
                 return <div id='tableDiv'>
                 <table id='table'>
                     <TableHeader headings={["Capability", "Features", ...filterArray(allComparisons, queryInBinary)]}/>
@@ -105,6 +105,26 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
                 return <RadarChart rawData={filterForChart(rawData)} comparisons = {filterArray(allComparisons, queryInBinary)}/>
             case 'Bar Chart':
                 return <BarChart rawData={filterForChart(rawData)} comparisons = {filterArray(allComparisons, queryInBinary)}/>
+            default:
+                break;
+        }
+    }
+
+    function renderDownloadButtons(activeTab) {
+        switch (activeTab) {
+            case 'Comparison Table':
+                return <>
+                <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
+                <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
+                <button onClick={()=>filterAndDownloadExcel(rawData, allHeadings, "11"+queryInBinary, 'Features Assessment')}>Download Excel</button>
+                </>
+            
+            case 'Radar Chart':
+                return <button onClick={()=>downloadCanvasAsImage('.radar-chart canvas', 'Features Radar Chart')}>Download Chart as Image</button>
+            
+            case 'Bar Chart':
+                return <button onClick={()=>downloadCanvasAsImage('.bar-chart canvas', 'Features Bar Chart')}>Download Chart as Image</button>
+
             default:
                 break;
         }
@@ -140,9 +160,7 @@ const FeaturesAssessmentDashboard = ({setActive}) => {
                 <Link to={`/capability-assessment-dashboard?q=${queryInBinary}`}><button className='prev'>Previous</button></Link>
             </div>
             <div>
-                <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
-                <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
-                <button onClick={()=>filterAndDownloadExcel(rawData, allHeadings, "11"+queryInBinary, 'Features Assessment')}>Download Excel</button>
+                {renderDownloadButtons(tab)}
             </div>
             <div className='right'>
                 <Link to={`/activities-assessment-dashboard?q=${queryInBinary}`}><button className='next'>Next</button></Link>

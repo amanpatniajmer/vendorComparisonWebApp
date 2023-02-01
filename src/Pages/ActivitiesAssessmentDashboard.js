@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import ComparisonForm from '../Components/ComparisonForm';
 import Header from '../Components/Header';
 import TableHeader from '../Components/Table/TableHeader';
-import { filterArray, downloadImagePDF, downloadTablePDF, getAllHeadings, downloadAllExcel, filterAndDownloadExcel } from '../Utils/utils';
+import { filterArray, downloadImagePDF, downloadTablePDF, getAllHeadings, downloadAllExcel, filterAndDownloadExcel, downloadCanvasAsImage } from '../Utils/utils';
 import TableRow from '../Components/Table/TableRow'
 import rawData from '../Data/activitiesDataRaw.json'
 import capabilitiesData from '../Data/capabilitiesDataRaw.json'
@@ -18,14 +18,26 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
     const [allComparisons, setAllComparisons] = useState([])
     const [allHeadings, setAllHeadings] = useState([])
     const [currentHeadings, setCurrentHeadings] = useState([])
-    let tabsList = ['Polar Area Chart', 'Table']
+    let tabsList = ['Polar Area Chart', 'Comparison Table']
     const [tab, setTab] = useState(tabsList[0])
 
     useEffect(() => {
         let allHeadings = getAllHeadings(rawData)
         setAllHeadings(allHeadings)
         setAllComparisons(allHeadings.slice(2, 10))
+        correctData();
     }, [])
+
+    function correctData(){
+        let length = rawData.length;
+        let row = rawData[length - 1]
+        for (let key in row) {
+            if(key !== 'Activities' && row[key] < 1) {
+                row[key] = (row[key] * 100)
+                row[key] = row[key].toFixed(2)
+            }
+        }
+    }
 
     useEffect(() => {
         setActive("Activities")
@@ -61,7 +73,7 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
 
     function renderTab(activeTab) {
         switch (activeTab) {
-            case 'Table':
+            case 'Comparison Table':
                 return <div id="tableDiv">
                 <table id="table">
                     <TableHeader headings={filterArray(allHeadings, "11"+queryInBinary+"0")}/>
@@ -70,10 +82,13 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
                             if(i == rawData.length - 3 && val !== null) {
                                 return <Fragment key={i}>
                                 <TableBreak breakText="&nbsp;"/>
-                                <TableRow key={i} dataObject={val} headingsArray={currentHeadings} mode={3}/>
+                                <TableRow key={i} dataObject={val} headingsArray={currentHeadings} mode={3} className="success"/>
                                 </Fragment>
                             }
-                            else if(i > rawData.length - 3 && val !== null) {
+                            else if(i == rawData.length - 2 && val !== null) {
+                                return <TableRow key={i} dataObject={val} headingsArray={currentHeadings} mode={3} className="error"/>
+                            }
+                            else if(i == rawData.length - 1 && val !== null) {
                                 return <TableRow key={i} dataObject={val} headingsArray={currentHeadings} mode={3}/>
                             }
                             else if(val !== null) {
@@ -87,6 +102,22 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
             
             case 'Polar Area Chart':
                 return <PolarChart rawData={filterForChart(rawData)} comparisons = {filterArray(allComparisons, queryInBinary)} heading={'Percentage of "Yes"'}/>
+        }
+    }
+
+    function renderDownloadButtons(activeTab) {
+        switch (activeTab) {
+            case 'Comparison Table':
+                return <>
+                <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
+                <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
+                <button onClick={()=>filterAndDownloadExcel(rawData, allHeadings, "11"+queryInBinary+"1", 'Activities Assessment')}>Download Excel</button>
+                <button className='success' onClick={()=>downloadAllExcel([capabilitiesData, featuresData, rawData], getMergedHeadings())}>Download All Excel</button>
+                </>
+            case 'Polar Area Chart':
+                return <button onClick={()=>downloadCanvasAsImage('.radar-chart canvas', 'Activities Radar Chart')}>Download Chart as Image</button>
+            default:
+                break;
         }
     }
   return (
@@ -104,10 +135,7 @@ const ActivitiesAssessmentDashboard = ({setActive}) => {
                 <Link to={`/feature-assessment-dashboard?q=${queryInBinary}`}><button className='prev'>Previous</button></Link>
             </div>
             <div>
-                <button onClick={()=>downloadImagePDF()}>Download Image PDF</button>
-                <button onClick={()=>downloadTablePDF()}>Download Table PDF</button>
-                <button onClick={()=>filterAndDownloadExcel(rawData, allHeadings, "11"+queryInBinary+"1", 'Activities Assessment')}>Download Excel</button>
-                <button className='success' onClick={()=>downloadAllExcel([capabilitiesData, featuresData, rawData], getMergedHeadings())}>Download All Excel</button>
+                {renderDownloadButtons(tab)}
             </div>
             <div>
             </div>

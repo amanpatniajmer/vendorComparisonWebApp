@@ -173,3 +173,10 @@ export function equalizeQueryString(queryInBinary, length) {
     }
     return newQuery;
 }
+
+export function downloadCanvasAsImage(query, filename='canvas'){
+    var link = document.createElement('a');
+    link.download = `${filename}.png`;
+    link.href = document.querySelector(query).toDataURL()
+    link.click();
+}
