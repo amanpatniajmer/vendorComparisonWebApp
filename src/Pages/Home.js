@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import ComparisonForm from '../Components/ComparisonForm'
 import Header from '../Components/Header'
-import homeImage from '../images/home.jpeg'
+import homeImage from '../images/home.jpg'
 
 const Home = ({setActive}) => {
   let location = useLocation();
   const [queryInBinary, setQueryInBinary] = useState('')
 
-  let allComparisons = ["ASPECT","CXOne","NICE","Verint","Calabrio","Genesys Cloud","AWS","Playvox"]
+  let allComparisons = ["Alvaria","CXOne","NICE","Verint","Calabrio","Genesys Cloud","AWS","Playvox"]
 
   useEffect(() => {
     setActive("Home")

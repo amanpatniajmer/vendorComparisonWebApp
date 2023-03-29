@@ -2,7 +2,7 @@
     {
      "S.No": 1,
      "Activities": "Cloud Solution (WFM)",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -15,12 +15,12 @@
     {
      "S.No": 2,
      "Activities": "Thick Client Solution (WFM)",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "N",
      "NICE": "Y",
      "Verint": "Y",
      "Calabrio": "N",
-     "Genesys (Cloud)": "N",
+     "Genesys (Cloud)": "Y",
      "AWS": "N",
      "Playvox": "Y",
      "Description": "Desktop Application for WFM team"
@@ -28,7 +28,7 @@
     {
      "S.No": 3,
      "Activities": "Web Based Solution (WFM)",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "N",
      "Verint": "Y",
@@ -41,7 +41,7 @@
     {
      "S.No": 4,
      "Activities": "Supervisor Module Web Based",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -54,7 +54,7 @@
     {
      "S.No": 5,
      "Activities": "Agent Module Web Based",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -71,8 +71,8 @@
     {
      "S.No": 6.1,
      "Activities": "Contact Allocation",
-     "Aspect": "Y",
-     "CXone": "Roadmap",
+     "Alvaria": "Y",
+     "CXone": "N",
      "NICE": "Y",
      "Verint": "Y",
      "Calabrio": "Y",
@@ -84,7 +84,7 @@
     {
      "S.No": 6.2,
      "Activities": "Requirement Allocation",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -97,7 +97,7 @@
     {
      "S.No": 6.3,
      "Activities": "Upload\/Import Historical Data",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -110,7 +110,7 @@
     {
      "S.No": 6.4,
      "Activities": "Special Distribution",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -123,7 +123,7 @@
     {
      "S.No": 6.5,
      "Activities": "Special Days",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -136,33 +136,33 @@
     {
      "S.No": 6.6,
      "Activities": "Future Activities",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
      "Calabrio": "Y",
      "Genesys (Cloud)": "N",
-     "AWS": "N",
+     "AWS": "Y",
      "Playvox": "Y",
      "Description": "You may use pre-planned schedule activities to affect the forecast allocations when you use dynamic planning for multi-site and multi-skill"
     },
     {
      "S.No": 6.7,
      "Activities": "Block Scheduling Activities",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
      "Calabrio": "N",
      "Genesys (Cloud)": "N",
-     "AWS": "N",
+     "AWS": "Y",
      "Playvox": "Y",
      "Description": "To add pre-planned open events and apply them at a skill group level during forecast &amp; schedule generation"
     },
     {
      "S.No": 6.8,
      "Activities": "Forecast Objectives\/SL Target",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -175,7 +175,7 @@
     {
      "S.No": 6.9,
      "Activities": "Enter Monthly Totals",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -188,7 +188,7 @@
     {
      "S.No": 6.1,
      "Activities": "Generate Forecast",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -201,7 +201,7 @@
     {
      "S.No": 6.11,
      "Activities": "Copy Forecast",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -214,7 +214,7 @@
     {
      "S.No": 6.12,
      "Activities": "Adjust Forecast",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -227,10 +227,10 @@
     {
      "S.No": 6.13,
      "Activities": "Generate Forecast Allocations",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "N",
      "NICE": "Y",
-     "Verint": "N",
+     "Verint": "Y",
      "Calabrio": "Y",
      "Genesys (Cloud)": "Y",
      "AWS": "Y",
@@ -240,7 +240,7 @@
     {
      "S.No": 6.14,
      "Activities": "Multi-Skill Forecast Generation",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -256,7 +256,7 @@
     {
      "S.No": 7.1,
      "Activities": "Automatic Agent Assignment",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -269,7 +269,7 @@
     {
      "S.No": 7.2,
      "Activities": "Schedue Bidding",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -282,20 +282,20 @@
     {
      "S.No": 7.3,
      "Activities": "Automatic Pattern Assignment",
-     "Aspect": "N",
+     "Alvaria": "Y",
      "CXone": "N",
      "NICE": "Y",
      "Verint": "N",
      "Calabrio": "N",
      "Genesys (Cloud)": "Y",
-     "AWS": "N",
+     "AWS": "Y",
      "Playvox": "Y",
      "Description": "To create active schedules (similar to schedule bidding), but you skip agent viewing and ranking the patterns. Does not use bid process to assign agents"
     },
     {
      "S.No": 7.4,
      "Activities": "Team Based Schedule",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -307,8 +307,8 @@
     },
     {
      "S.No": 7.5,
-     "Activities": "Activities\/Exceptions",
-     "Aspect": "Y",
+     "Activities": "Activities/Exceptions",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -321,7 +321,7 @@
     {
      "S.No": 7.6,
      "Activities": "Shift Rules",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -334,12 +334,12 @@
     {
      "S.No": 7.7,
      "Activities": "Weekly Rules",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
      "Calabrio": "Y",
-     "Genesys (Cloud)": "N",
+     "Genesys (Cloud)": "Y",
      "AWS": "Y",
      "Playvox": "Y",
      "Description": "Rules to specify the working hours\/conditions for a week. Defines a set of rules for a week"
@@ -347,7 +347,7 @@
     {
      "S.No": 7.8,
      "Activities": "Rotating Rules",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -360,20 +360,20 @@
     {
      "S.No": 7.9,
      "Activities": "Shift Policies",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
      "Calabrio": "Y",
      "Genesys (Cloud)": "Y",
-     "AWS": "N",
+     "AWS": "Y",
      "Playvox": "Y",
      "Description": "Define the limits and valid sequences of shifts for different agent groups\/units"
     },
     {
      "S.No": 7.1,
      "Activities": "Agent Profile",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -386,7 +386,7 @@
     {
      "S.No": 7.11,
      "Activities": "Agent Skills",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -399,7 +399,7 @@
     {
      "S.No": 7.12,
      "Activities": "Agent Availability",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -412,7 +412,7 @@
     {
      "S.No": 7.13,
      "Activities": "Agent Preferences",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -425,7 +425,7 @@
     {
      "S.No": 7.14,
      "Activities": "Agent Seat Limit",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -438,7 +438,7 @@
     {
      "S.No": 7.15,
      "Activities": "Agent Data Groups",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -451,7 +451,7 @@
     {
      "S.No": 7.16,
      "Activities": "Holiday Fainess",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -464,12 +464,12 @@
     {
      "S.No": 7.17,
      "Activities": "Schedule Fairness",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
      "Calabrio": "N",
-     "Genesys (Cloud)": "N",
+     "Genesys (Cloud)": "Y",
      "AWS": "N",
      "Playvox": "N",
      "Description": "Describes the database setup to invoke and manage schedule fairness days and rotations"
@@ -477,7 +477,7 @@
     {
      "S.No": 7.18,
      "Activities": "Multi-Week Scheduling",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -490,7 +490,7 @@
     {
      "S.No": 7.19,
      "Activities": "Date Range Scheduling",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "N",
      "NICE": "Y",
      "Verint": "Y",
@@ -501,22 +501,22 @@
      "Description": "Schedules are generated for a specific date range instead of being confined to a 7-day work week constraint"
     },
     {
-     "S.No": 7.2,
+     "S.No": 7.20,
      "Activities": "Use Requiremenst for more than 1 Week",
-     "Aspect": "N",
+     "Alvaria": "N",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
      "Calabrio": "N",
      "Genesys (Cloud)": "Y",
-     "AWS": "N",
+     "AWS": "Y",
      "Playvox": "Y",
      "Description": "Same requirement generated by a forecast could be used for simulations for any other period"
     },
     {
      "S.No": 7.21,
      "Activities": "Staffing Tables",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -533,7 +533,7 @@
     {
      "S.No": 8.1,
      "Activities": "Intra Day Performance",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -546,7 +546,7 @@
     {
      "S.No": 8.2,
      "Activities": "Agent State Summary",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -559,12 +559,12 @@
     {
      "S.No": 8.3,
      "Activities": "Real Time Adherence (Thick Client)",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "N",
      "NICE": "Y",
      "Verint": "Y",
      "Calabrio": "N",
-     "Genesys (Cloud)": "N",
+     "Genesys (Cloud)": "Y",
      "AWS": "N",
      "Playvox": "Y",
      "Description": "Monitor real time agent state information from the desktop application"
@@ -572,7 +572,7 @@
     {
      "S.No": 8.4,
      "Activities": "Real Time Adherence (Web Module)",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -585,7 +585,7 @@
     {
      "S.No": 8.5,
      "Activities": "Agent Activity",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -598,7 +598,7 @@
     {
      "S.No": 8.6,
      "Activities": "Adherence Exclusions",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "NICE": "Y",
      "Verint": "Y",
      "Calabrio": "N",
@@ -610,7 +610,7 @@
     {
      "S.No": 8.7,
      "Activities": "Individual Schedules",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -622,8 +622,8 @@
     },
     {
      "S.No": 8.8,
-     "Activities": "Schedue Management",
-     "Aspect": "Y",
+     "Activities": "Schedule Management",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -636,7 +636,7 @@
     {
      "S.No": 8.9,
      "Activities": "Schedule Trade (Thick Client)",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "N",
      "NICE": "Y",
      "Verint": "Y",
@@ -647,9 +647,9 @@
      "Description": "To trade schedules between two agents. You may trade schedules between agents even if they are in different groups using the desktop application"
     },
     {
-     "S.No": 8.1,
+     "S.No": 8.10,
      "Activities": "Schedule Trade (Web Module)",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -662,7 +662,7 @@
     {
      "S.No": 8.11,
      "Activities": "Schedule Change Requests (Web Module))",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -675,7 +675,7 @@
     {
      "S.No": 8.12,
      "Activities": "Agent Statistics (Web Module)",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -692,7 +692,7 @@
     {
      "S.No": 9.1,
      "Activities": "Generate Reports",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -705,7 +705,7 @@
     {
      "S.No": 9.2,
      "Activities": "View Reports",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -718,7 +718,7 @@
     {
      "S.No": 9.3,
      "Activities": "Standard Reports",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -735,7 +735,7 @@
     {
      "S.No": 10.1,
      "Activities": "Time Off Types",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -748,7 +748,7 @@
     {
      "S.No": 10.2,
      "Activities": "Accrual Tables",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -761,7 +761,7 @@
     {
      "S.No": 10.3,
      "Activities": "Time Off Rules",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -774,12 +774,12 @@
     {
      "S.No": 10.4,
      "Activities": "Time Off Groups",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
      "Calabrio": "N",
-     "Genesys (Cloud)": "N",
+     "Genesys (Cloud)": "Y",
      "AWS": "Y",
      "Playvox": "N",
      "Description": "To define groups for Time Off types and assign rules to a group"
@@ -787,7 +787,7 @@
     {
      "S.No": 10.5,
      "Activities": "Time Off Summary",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -800,7 +800,7 @@
     {
      "S.No": 10.6,
      "Activities": "Time Off Parameters",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -813,7 +813,7 @@
     {
      "S.No": 10.7,
      "Activities": "Time Off Allotment",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -824,9 +824,22 @@
      "Description": "Define how much time to allow off each day. If using wait list functionality, determine who to assign time off to when time becomes available"
     },
     {
+        "S.No": 10.8,
+        "Activities": "Time Off Simultaneous Bidding",
+        "Alvaria": "N",
+        "CXone": "Y",
+        "NICE": "Y",
+        "Verint": "N",
+        "Calabrio": "N",
+        "Genesys (Cloud)": "N",
+        "AWS": "N",
+        "Playvox": "N",
+        "Description": "Define how much time to allow off each day. If using wait list functionality, determine who to assign time off to when time becomes available"
+       },
+    {
      "S.No": 11,
      "Activities": "Time Board",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "N",
@@ -839,7 +852,7 @@
     {
      "S.No": 12,
      "Activities": "Users and Permissions",
-     "Aspect": "Y",
+     "Alvaria": "Y",
      "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
@@ -852,8 +865,8 @@
     {
      "S.No": 13,
      "Activities": "Personal Planner",
-     "Aspect": "Y",
-     "CXone": "N",
+     "Alvaria": "Y",
+     "CXone": "Y",
      "NICE": "Y",
      "Verint": "Y",
      "Calabrio": "Y",
@@ -863,36 +876,49 @@
      "Description": "To view and analyze long-term forecasts for a contact type. Changes made to the forecast could show the impact to the staffing requirements. Used as a Cap Planer"
     },
     {
+        "S.No": 14,
+        "Activities": "SSO Login for WFM Application",
+        "Alvaria": "Y",
+        "CXone": "Y",
+        "NICE": "Y",
+        "Verint": "Y",
+        "Calabrio": "Y",
+        "Genesys (Cloud)": "N",
+        "AWS": "N",
+        "Playvox": "N",
+        "Description": "Single sign-on can be enabled to login to RCP client application "
+       },
+    {
      "Activities": "Count of  \"Yes\"",
-     "Aspect": 63,
-     "CXone": 56,
-     "NICE": 64,
-     "Verint": 62,
-     "Calabrio": 47,
-     "Genesys (Cloud)": 44,
-     "AWS": 45,
+     "Alvaria": 65,
+     "CXone": 61,
+     "NICE": 66,
+     "Verint": 64,
+     "Calabrio": 48,
+     "Genesys (Cloud)": 50,
+     "AWS": 50,
      "Playvox": 54
     },
     {
      "Activities": "Count of  \"No\"",
-     "Aspect": 2,
-     "CXone": 7,
+     "Alvaria": 2,
+     "CXone": 6,
      "NICE": 1,
      "Verint": 3,
-     "Calabrio": 18,
-     "Genesys (Cloud)": 17,
-     "AWS": 20,
-     "Playvox": 11
+     "Calabrio": 19,
+     "Genesys (Cloud)": 13,
+     "AWS": 17,
+     "Playvox": 13
     },
     {
      "Activities": "Percentage of  \"Yes\" ",
-     "Aspect": 0.9692307692307692,
-     "CXone": 0.8888888888888888,
-     "NICE": 0.9846153846153847,
-     "Verint": 0.9538461538461539,
-     "Calabrio": 0.7230769230769231,
-     "Genesys (Cloud)": 0.7213114754098361,
-     "AWS": 0.6923076923076923,
-     "Playvox": 0.8307692307692308
+     "Alvaria": 0.97,
+     "CXone": 0.91,
+     "NICE": 0.985,
+     "Verint": 0.955,
+     "Calabrio": 0.716,
+     "Genesys (Cloud)": 0.794,
+     "AWS": 0.746,
+     "Playvox": 0.806
     }
    ]
